@@ -107,14 +107,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_velocity: {x: 0, y: 0, z: 0}
   m_gravity: 0
+  m_collisionRadius: 0.25
   m_collisionDetectionMask:
     serializedVersion: 2
-    m_Bits: 1
-  m_collisionRadius: 0.25
+    m_Bits: 1025
   m_bulletHitEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: BulletEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_bulletDamage: 10
   m_debugGizmos: 0
   m_gizmosColor1: {r: 0, g: 1, b: 0.12190795, a: 1}
   m_gizmosColor2: {r: 1, g: 0.65882355, b: 0, a: 1}

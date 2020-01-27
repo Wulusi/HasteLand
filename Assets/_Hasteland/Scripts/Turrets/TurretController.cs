@@ -9,7 +9,7 @@ public class TurretController : MonoBehaviour
     #region Behaviour States
     public enum TurretBehaviourState
     {
-        Idle, RotateToEnemy, RotateToDefault
+        Idle, RotateToEnemy
     }
     public TurretBehaviourState m_currentState;
     #endregion
@@ -25,76 +25,175 @@ public class TurretController : MonoBehaviour
 
     #endregion
 
+    [Header("DetectionRadius")]
+    public float m_detectionRadius;
+    public LayerMask m_detectionMask;
+
     [Header("Rotation Variables")]
-    public Transform m_rotateX;
     public Transform m_rotateY;
+    public Transform m_rotateX;
 
     [Tooltip("Used to determine how close the turret needs to be in order to start slowing down. A higher number means it has to be closer.")]
     public float m_rotationSensitivity;
 
-    private List<GameObject> m_targetsInRange;
+    private List<GameObject> m_targetsInRange = new List<GameObject>();
     private GameObject m_currentTarget;
     private TurretLevel m_turretLevel;
+
+    [Header("Fire Properties")]
+    public float m_shootingAngle;
+    private bool m_canFire = true;
+    private WaitForSeconds m_fireDelay;
+
+    [Header("DebuggingTools")]
+    public bool m_debugging;
+    public Color m_gizmosColor1;
     void Start()
     {
         m_turretLevel = GetComponent<TurretLevel>();
-        StartCoroutine(FireTurretTest());
+        m_fireDelay = new WaitForSeconds(m_turretLevel.m_turretFireRates[m_turretLevel.m_currentFireRateIndex].m_turretFireRate);
     }
 
-    public Transform m_debugTarget;
     void Update()
     {
-        RotateTurret(m_debugTarget.position);
+        CheckState();
         Debug.DrawLine(m_rotateY.position, m_rotateY.forward * 15 + m_rotateY.position, Color.red);
         Debug.DrawLine(m_rotateX.position, m_rotateX.forward * 15 + m_rotateX.position, Color.blue);
-
-
-        
     }
 
+    #region StateMachine
     private void CheckState()
     {
         switch (m_currentState)
         {
+            #region Idle State
             case TurretBehaviourState.Idle:
+                RotateTurret(transform.forward + transform.position);
+                CheckDetectionRadius();
+                if (TargetExists())
+                {
+                    ChangeState(TurretBehaviourState.RotateToEnemy);
+                }
+                break;
+            #endregion
+
+            #region RotateToEnemy State
+            case TurretBehaviourState.RotateToEnemy:
+                CheckDetectionRadius();
+                if (!TargetExists())
+                {
+                    ChangeState(TurretBehaviourState.Idle);
+                }
+                else
+                {
+                    RotateTurret(m_currentTarget.transform.position);
+                    if (CorrectAngle(m_currentTarget.transform.position, m_shootingAngle))
+                    {
+                        FireTurret();
+                    }
+                }
+                break;
+                #endregion
+        }
+    }
+
+    private void ChangeState(TurretBehaviourState p_newState)
+    {
+        m_currentState = p_newState;
+        switch (p_newState)
+        {
+            case TurretBehaviourState.Idle:
+
                 break;
             case TurretBehaviourState.RotateToEnemy:
+
                 break;
-            case TurretBehaviourState.RotateToDefault:
-                break;
+
         }
     }
+    #endregion
 
-    private void OnTriggerEnter(Collider other)
+    #region Detection
+    private void CheckDetectionRadius()
     {
-        AddEnemyToList(other.gameObject);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        RemoveEnemyFromList(other.gameObject);
-    }
-
-    private void AddEnemyToList(GameObject p_addedTarget)
-    {
-        if (!m_targetsInRange.Contains(p_addedTarget))
+        List<GameObject> existingTargets = new List<GameObject>();
+        foreach (GameObject currentTarget in m_targetsInRange)
         {
-            m_targetsInRange.Add(p_addedTarget);
+            existingTargets.Add(currentTarget);
         }
-    }
-    private void RemoveEnemyFromList(GameObject p_removeTarget)
-    {
-        if (m_targetsInRange.Contains(p_removeTarget))
+
+        Collider[] cols = Physics.OverlapSphere(transform.position, m_detectionRadius, m_detectionMask);
+        foreach (Collider col in cols)
         {
-            m_targetsInRange.Remove(p_removeTarget);
+            if (existingTargets.Contains(col.gameObject))
+            {
+                existingTargets.Remove(col.gameObject);
+            }
+            else
+            {
+                m_targetsInRange.Add(col.gameObject);
+            }
+        }
+
+        foreach (GameObject removeTarget in existingTargets)
+        {
+            if (m_targetsInRange.Contains(removeTarget))
+            {
+                m_targetsInRange.Remove(removeTarget);
+            }
         }
     }
 
-
-
-    private void FireTurret()
+    private bool TargetExists()
     {
-        m_turretEvents.m_fireTurretEvent.Invoke();
+        if (m_currentTarget == null)
+        {
+            if (m_targetsInRange.Count > 0)
+            {
+                m_currentTarget = m_targetsInRange[0];
+                return true;
+            }
+            return false;
+        }
+        else
+        {
+            if (!m_currentTarget.activeSelf)
+            {
+                if (m_targetsInRange.Contains(m_currentTarget))
+                {
+                    m_targetsInRange.Remove(m_currentTarget);
+                }
+                if (m_targetsInRange.Count > 0)
+                {
+                    m_currentTarget = m_targetsInRange[0];
+                    return true;
+                }
+                else
+                {
+                    m_currentTarget = null;
+                    return false;
+                }
+            }
+            else
+            {
+                if (!m_targetsInRange.Contains(m_currentTarget))
+                {
+                    if (m_targetsInRange.Count > 0)
+                    {
+                        m_currentTarget = m_targetsInRange[0];
+                    }
+                    else
+                    {
+                        m_currentTarget = null;
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
     }
+    #endregion
+
 
 
     private void RotateTurret(Vector3 p_targetPos)
@@ -156,25 +255,41 @@ public class TurretController : MonoBehaviour
         #endregion
 
     }
+
+
+    #region Fire
     private bool CorrectAngle(Vector3 p_targetPos, float p_stopAngle)
     {
-        float angle = Vector3.Angle(transform.forward, new Vector3(p_targetPos.x, p_targetPos.y, p_targetPos.z) - transform.position);
+        float angle = Vector3.Angle(m_rotateX.forward, new Vector3(p_targetPos.x, p_targetPos.y, p_targetPos.z) - m_rotateX.position);
         if (angle < p_stopAngle)
         {
             return true;
         }
         return false;
     }
-
-    private IEnumerator FireTurretTest()
+    private void FireTurret()
     {
-        while (true)
+        if (m_canFire)
         {
-
-
-            yield return new WaitForSeconds(m_turretLevel.m_turretFireRates[m_turretLevel.m_currentFireRateIndex].m_turretFireRate);
-            print("Testing Fire Behaviour");
-            FireTurret();
+            m_turretEvents.m_fireTurretEvent.Invoke();
+            StartCoroutine(TurretShotRecharge());
         }
+    }
+
+    private IEnumerator TurretShotRecharge()
+    {
+        m_canFire = false;
+        yield return m_fireDelay;
+        m_canFire = true;
+    }
+    #endregion
+
+
+    private void OnDrawGizmos()
+    {
+        if (!m_debugging) return;
+        Gizmos.color = m_gizmosColor1;
+        Gizmos.DrawWireSphere(transform.position, m_detectionRadius);
+
     }
 }

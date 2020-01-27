@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class BulletEvent: UnityEngine.Events.UnityEvent { }
+public class BulletEvent : UnityEngine.Events.UnityEvent { }
 
 public class BulletsBehaviour : MonoBehaviour
 {
+    [Header("Bullet Physics")]
     public Vector3 m_velocity;
     public float m_gravity;
-    public LayerMask m_collisionDetectionMask;
     public float m_collisionRadius;
+    public LayerMask m_collisionDetectionMask;
     public BulletEvent m_bulletHitEvent;
 
     private ObjectPooler m_pooler;
+    public float m_bulletDamage;
     [Header("Debugging")]
     public bool m_debugGizmos;
     public Color m_gizmosColor1, m_gizmosColor2;
@@ -25,13 +27,13 @@ public class BulletsBehaviour : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        m_velocity = new Vector3(m_velocity.x, m_velocity.y - (Mathf.Abs(m_gravity) /50), m_velocity.z);
+        m_velocity = new Vector3(m_velocity.x, m_velocity.y - (Mathf.Abs(m_gravity) / 50), m_velocity.z);
         RaycastHit hit;
-        if (Physics.SphereCast(transform.position, m_collisionRadius,m_velocity.normalized, out hit, m_velocity.magnitude*Time.fixedDeltaTime, m_collisionDetectionMask))
+        if (Physics.SphereCast(transform.position, m_collisionRadius, m_velocity.normalized, out hit, m_velocity.magnitude * Time.fixedDeltaTime, m_collisionDetectionMask))
         {
             transform.position += m_velocity.normalized * hit.distance;
             HitObject(hit.transform.gameObject);
-            
+
         }
         else
         {
@@ -42,7 +44,11 @@ public class BulletsBehaviour : MonoBehaviour
     private void HitObject(GameObject p_hitObject)
     {
         m_bulletHitEvent.Invoke();
-        print(name + " collided with " + p_hitObject.name + ".");
+        Health hitHealth = p_hitObject.GetComponent<Health>();
+        if (hitHealth != null)
+        {
+            hitHealth.TakeDamage(m_bulletDamage);
+        }
         m_pooler.ReturnToPool(this.gameObject);
     }
 

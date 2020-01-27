@@ -315,7 +315,7 @@ GameObject:
   m_Layer: 0
   m_Name: FireSpot
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -366,7 +366,7 @@ Transform:
   - {fileID: 194946639}
   - {fileID: 906708008}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &520467357
 GameObject:
@@ -413,7 +413,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615490382
 GameObject:
@@ -427,8 +427,8 @@ GameObject:
   - component: {fileID: 615490385}
   - component: {fileID: 615490384}
   - component: {fileID: 615490383}
-  m_Layer: 0
-  m_Name: Sphere
+  m_Layer: 10
+  m_Name: Enemy Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d90e8a152f23b304380bc0899c44dfc6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -501,11 +501,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615490382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7025253, z: 8.05}
+  m_LocalPosition: {x: 0, y: 1.7025253, z: 8.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624805273
 GameObject:
@@ -556,10 +556,16 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: TurretEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+  m_detectionRadius: 10
+  m_detectionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_rotateY: {fileID: 1569816517}
   m_rotateX: {fileID: 1195618921}
-  m_rotateY: {fileID: 624805275}
   m_rotationSensitivity: 5
-  m_debugTarget: {fileID: 615490386}
+  m_shootingAngle: 15
+  m_debugging: 1
+  m_gizmosColor1: {r: 0, g: 1, b: 0.09169221, a: 1}
 --- !u!4 &624805275
 Transform:
   m_ObjectHideFlags: 0
@@ -571,9 +577,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.709, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1195618921}
+  - {fileID: 1569816517}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &624805276
 MonoBehaviour:
@@ -668,7 +674,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906708007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -901,7 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195618921}
   m_Layer: 0
-  m_Name: XRoot
+  m_Name: X Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -920,6 +926,37 @@ Transform:
   m_Children:
   - {fileID: 2106724859}
   - {fileID: 203963693}
+  m_Father: {fileID: 1569816517}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1569816516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569816517}
+  m_Layer: 0
+  m_Name: Y Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569816517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569816516}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1195618921}
   m_Father: {fileID: 624805275}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
