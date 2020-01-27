@@ -6,6 +6,11 @@ using UnityEngine;
 public class TurretEvent : UnityEngine.Events.UnityEvent { }
 public class TurretController : MonoBehaviour
 {
+    public enum TurretRotationType
+    {
+        Default, Parabolic
+    }
+    public TurretRotationType m_turretRotationType;
     #region Behaviour States
     public enum TurretBehaviourState
     {
@@ -32,6 +37,7 @@ public class TurretController : MonoBehaviour
     [Header("Rotation Variables")]
     public Transform m_rotateY;
     public Transform m_rotateX;
+    public float m_defaultRestingAngle, m_parabolicRestingAngle;
 
     [Tooltip("Used to determine how close the turret needs to be in order to start slowing down. A higher number means it has to be closer.")]
     public float m_rotationSensitivity;
@@ -68,7 +74,19 @@ public class TurretController : MonoBehaviour
         {
             #region Idle State
             case TurretBehaviourState.Idle:
-                RotateTurret(transform.forward + transform.position);
+
+                switch (m_turretRotationType)
+                {
+                    case TurretRotationType.Default:
+                        RotateTurret(Quaternion.AngleAxis(m_defaultRestingAngle, Vector3.right) * transform.forward + transform.position, TurretRotationType.Default);
+                        break;
+                    case TurretRotationType.Parabolic:
+                        RotateTurret(Quaternion.AngleAxis(m_parabolicRestingAngle, Vector3.right) * transform.forward + transform.position, TurretRotationType.Default);
+                        break;
+                }
+                
+
+
                 CheckDetectionRadius();
                 if (TargetExists())
                 {
@@ -86,7 +104,7 @@ public class TurretController : MonoBehaviour
                 }
                 else
                 {
-                    RotateTurret(m_currentTarget.transform.position);
+                    RotateTurret(m_currentTarget.transform.position, m_turretRotationType);
                     if (CorrectAngle(m_currentTarget.transform.position, m_shootingAngle))
                     {
                         FireTurret();
@@ -196,7 +214,7 @@ public class TurretController : MonoBehaviour
 
 
 
-    private void RotateTurret(Vector3 p_targetPos)
+    private void RotateTurret(Vector3 p_targetPos, TurretRotationType p_rotationType)
     {
 
         #region yRotation
@@ -231,10 +249,38 @@ public class TurretController : MonoBehaviour
         float disYFromTarget = Mathf.Abs(p_targetPos.y - m_rotateX.position.y);
 
         //Use the distance and height to create a virtual target, that rotates with the y axis, thus negating the z axis
-        currentTarget = m_rotateY.localRotation * new Vector3(0, disYFromTarget * (p_targetPos.y > m_rotateX.transform.position.y ? 1 : -1), disXFromTransform).normalized * m_rotationSensitivity;
-        Debug.DrawLine(m_rotateX.position, currentTarget + m_rotateX.position, Color.green);
 
-        //Find which way to turn, and how much to rotate
+
+
+
+        //Change the current target so that a parabolic calculation is used
+        if (p_rotationType == TurretRotationType.Parabolic)
+        {
+            float sqrt = (m_projectileSpeed * m_projectileSpeed * m_projectileSpeed * m_projectileSpeed) - (m_bulletGravity * (m_bulletGravity * (disXFromTransform * disXFromTransform) + 2 * disYFromTarget * (m_projectileSpeed * m_projectileSpeed)));
+            if (sqrt < 0)
+            {
+                print("No solution");
+            }
+            sqrt = Mathf.Sqrt(sqrt);
+            float calculateAnglePos = Mathf.Atan(((m_projectileSpeed * m_projectileSpeed) + sqrt) / (m_bulletGravity * disXFromTransform)) * Mathf.Rad2Deg;
+            float calculateAngleNeg = Mathf.Atan(((m_projectileSpeed * m_projectileSpeed) - sqrt) / (m_bulletGravity * disXFromTransform)) * Mathf.Rad2Deg;
+
+            print("Pos: " + calculateAnglePos + " | Neg : " + calculateAngleNeg);
+            currentTarget = (Quaternion.AngleAxis(-calculateAnglePos, Vector3.right) * m_rotateY.forward).normalized * m_rotationSensitivity;
+            Debug.DrawLine(transform.position, transform.position + currentTarget, Color.green);
+
+
+            FireTurret();
+
+        }
+        //Use the virtual current target
+        else
+        {
+            currentTarget = m_rotateY.localRotation * new Vector3(0, disYFromTarget * (p_targetPos.y > m_rotateX.transform.position.y ? 1 : -1), disXFromTransform).normalized * m_rotationSensitivity;
+            Debug.DrawLine(m_rotateX.position, currentTarget + m_rotateX.position, Color.green);
+        }
+
+
         currentDistance = Vector3.Cross(m_rotateX.forward, currentTarget - m_rotateX.forward).magnitude;
         dirToRotate = Vector3.Dot(-m_rotateX.up, currentTarget - m_rotateX.forward);
         //Edge case
@@ -252,10 +298,11 @@ public class TurretController : MonoBehaviour
 
 
 
+
         #endregion
 
     }
-
+    public float m_bulletGravity, m_projectileSpeed;
 
     #region Fire
     private bool CorrectAngle(Vector3 p_targetPos, float p_stopAngle)
