@@ -238,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194946638}
   m_LocalRotation: {x: -0.49994105, y: 0.500059, z: 0.4999396, w: 0.5000604}
-  m_LocalPosition: {x: -25.4, y: 0, z: -0.8}
+  m_LocalPosition: {x: -24.87, y: -0, z: -0.13}
   m_LocalScale: {x: 50, y: 0.5, z: 50}
   m_Children: []
   m_Father: {fileID: 340846367}
@@ -557,20 +557,20 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: TurretEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  m_detectionRadius: 10
+  m_detectionRadius: 30
   m_detectionMask:
     serializedVersion: 2
     m_Bits: 1024
   m_rotateY: {fileID: 1569816517}
   m_rotateX: {fileID: 1195618921}
-  m_defaultRestingAngle: -10
-  m_parabolicRestingAngle: 45
+  m_defaultRestingAngle: 10
+  m_parabolicRestingAngle: -45
   m_rotationSensitivity: 5
   m_shootingAngle: 15
   m_debugging: 1
   m_gizmosColor1: {r: 0, g: 1, b: 0.09169221, a: 1}
   m_bulletGravity: 39.24
-  m_projectileSpeed: 20
+  m_projectileSpeed: 40
 --- !u!4 &624805275
 Transform:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_fireSpot: {fileID: 203963693}
   m_bulletPrefab: {fileID: 492754570461775801, guid: e6a7b1c3fcf1f1440a3f528ba3fdf18a,
     type: 3}
-  m_projectileSpeed: 20
+  m_projectileSpeed: 40
 --- !u!1 &906708007
 GameObject:
   m_ObjectHideFlags: 0

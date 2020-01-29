@@ -263,10 +263,10 @@ public class TurretController : MonoBehaviour
             }
             sqrt = Mathf.Sqrt(sqrt);
             float calculateAnglePos = Mathf.Atan(((m_projectileSpeed * m_projectileSpeed) + sqrt) / (m_bulletGravity * disXFromTransform)) * Mathf.Rad2Deg;
-            float calculateAngleNeg = Mathf.Atan(((m_projectileSpeed * m_projectileSpeed) - sqrt) / (m_bulletGravity * disXFromTransform)) * Mathf.Rad2Deg;
+            //float calculateAngleNeg = Mathf.Atan(((m_projectileSpeed * m_projectileSpeed) - sqrt) / (m_bulletGravity * disXFromTransform)) * Mathf.Rad2Deg;
 
-            print("Pos: " + calculateAnglePos + " | Neg : " + calculateAngleNeg);
-            currentTarget = (Quaternion.AngleAxis(-calculateAnglePos, Vector3.right) * m_rotateY.forward).normalized * m_rotationSensitivity;
+            currentTarget = (Quaternion.AngleAxis(-calculateAnglePos, Vector3.right) * Vector3.forward).normalized * m_rotationSensitivity;
+            currentTarget = Quaternion.AngleAxis(m_rotateY.eulerAngles.y, Vector3.up) * currentTarget;
             Debug.DrawLine(transform.position, transform.position + currentTarget, Color.green);
 
 
