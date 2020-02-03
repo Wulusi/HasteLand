@@ -14,7 +14,7 @@ public class TurretController : MonoBehaviour
     #region Behaviour States
     public enum TurretBehaviourState
     {
-        Idle, RotateToEnemy
+        Idle, RotateToEnemy, BeingBuilt
     }
     public TurretBehaviourState m_currentState;
     #endregion
@@ -26,6 +26,7 @@ public class TurretController : MonoBehaviour
     public struct TurretEvents
     {
         public TurretEvent m_fireTurretEvent;
+        public TurretEvent m_startTurretBuilding;
     }
 
     #endregion
@@ -130,6 +131,20 @@ public class TurretController : MonoBehaviour
         }
     }
     #endregion
+
+    #region Active States
+    public void FinishedBuild()
+    {
+        ChangeState(TurretBehaviourState.Idle);
+    }
+
+    public void StartBuilding()
+    {
+        ChangeState(TurretBehaviourState.BeingBuilt);
+        m_turretEvents.m_startTurretBuilding.Invoke();
+    }
+    #endregion
+
 
     #region Detection
     private void CheckDetectionRadius()

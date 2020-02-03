@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 {
     #region Generic Health Values
     public float m_maxHealth;
-    private float m_currentHealth;
+    public float m_currentHealth;
     [HideInInspector]
     public bool m_isDead;
     public HealthActivationEvent m_onDied = new HealthActivationEvent();
@@ -31,9 +31,12 @@ public class Health : MonoBehaviour
     private WaitForSeconds m_shieldRegenDelayTimer;
     #endregion
 
+    private ObjectPooler m_pooler;
+
 
     private void Start()
     {
+        m_pooler = ObjectPooler.instance;
         m_shieldRegenDelayTimer = new WaitForSeconds(m_shieldRegenDelay);
         Respawn();
     }
@@ -106,6 +109,9 @@ public class Health : MonoBehaviour
         m_currentShieldStrength = m_maxShieldStrength;
         m_shieldRegenerationCoroutine = null;
     }
-
     
+    public void ReturnToPool()
+    {
+        m_pooler.ReturnToPool(this.gameObject);
+    }
 }
