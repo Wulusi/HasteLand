@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerrainMover : MonoBehaviour
+public class TerrainMover : MonoBehaviour, PooledObjInterface
 {
-
+    public bool isStartingTiles;
     public int terrainSpd;
     public bool isLevelComplete;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(moveTiles(terrainSpd));
+        if (isStartingTiles)
+        {
+           StartCoroutine(moveTiles(terrainSpd));
+        }
     }
-
     // Update is called once per frame
     void Update()
     {
 
     }
-
 
     IEnumerator moveTiles(int terrainSpd)
     {
@@ -29,5 +30,15 @@ public class TerrainMover : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void OnPooledObjSpawn()
+    {
+        StartCoroutine(moveTiles(terrainSpd));
+    }
+
+    public void OnDisable()
+    {
+        StopCoroutine(moveTiles(terrainSpd));
     }
 }

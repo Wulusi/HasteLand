@@ -8,6 +8,8 @@ public class LevelController : MonoBehaviour
 
     public GameObject[] spawnReference;
 
+    private GameObject despawner;
+
     private PoolManager poolManager;
 
     private bool isLevelFinished;
@@ -17,13 +19,15 @@ public class LevelController : MonoBehaviour
     {
         poolManager = PoolManager.Instance;
 
+        despawner = transform.GetChild(1).gameObject;
+
         StartCoroutine(SpawnIntervals());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator SpawnIntervals()
@@ -31,15 +35,16 @@ public class LevelController : MonoBehaviour
         while (!isLevelFinished)
         {
 
-            float duration = 3f;
+            float duration = 4.0f;
             float totalTime = 0f;
 
-            while (totalTime <= duration)
+            while (totalTime % duration == 0)
             {
-                totalTime += Time.deltaTime;
+                totalTime = Time.time;
                 //do nothing;
                 yield return null;
             }
+            Debug.Log("total time is " + totalTime);
             //Spawn tile here
             spawnMapSections();
             //Reset Spawntimer;
@@ -49,8 +54,26 @@ public class LevelController : MonoBehaviour
 
     void spawnMapSections()
     {
-        var terrainName = spawnReference[Random.Range(0, spawnReference.Length)].ToString();
+        var terrain = spawnReference[Random.Range(0, spawnReference.Length)];
 
-        poolManager.SpawnFromPool(terrainName, spawnPos.transform.position, Quaternion.identity);
+        bool isFirstSpawn = false;
+
+        if (!isFirstSpawn)
+        {
+            Debug.Log("terrain name is " + terrain);
+
+            poolManager.SpawnFromPool(terrain.name, spawnPos.transform.position, Quaternion.identity);
+        } else
+        {
+            GameObject lastTerrain = terrain;
+            if(terrain != lastTerrain)
+            {
+                poolManager.SpawnFromPool(terrain.name, spawnPos.transform.position, Quaternion.identity);
+            } else
+            {
+                poolManager.SpawnFromPool(terrain.name, spawnPos.transform.position, Quaternion.identity);
+            }
+
+        }
     }
 }
