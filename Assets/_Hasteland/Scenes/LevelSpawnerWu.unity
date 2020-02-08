@@ -169,6 +169,9 @@ MonoBehaviour:
   despawnPos: {fileID: 991556131}
   spawnReference:
   - {fileID: 6850813723156067573, guid: b05a62bc811c9c94089f9ddd808097a8, type: 3}
+  - {fileID: 3787611674315274959, guid: c6370abff51856a459b4c260a7b9fd25, type: 3}
+  - {fileID: 1304192892600507621, guid: d46b2d43305b57c4a9b0a8c0bac9ca11, type: 3}
+  - {fileID: 6268932335769736316, guid: a045d5a0f27faf04b8d66331405e7c81, type: 3}
 --- !u!1 &209851226
 GameObject:
   m_ObjectHideFlags: 0
