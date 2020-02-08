@@ -47,7 +47,10 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
         }
         else
         {
-            GameHub.LevelController.currentTerrainList.Remove(this.gameObject);
+            if (GameHub.LevelController != null)
+            {
+                GameHub.LevelController.currentTerrainList.Remove(this.gameObject);
+            }
         }
     }
 }
