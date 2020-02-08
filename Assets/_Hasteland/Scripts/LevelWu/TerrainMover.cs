@@ -22,11 +22,16 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
 
     }
 
+    void FixedUpdate()
+    {
+
+    }
+
     IEnumerator moveTiles(int terrainSpd)
     {
         while (true)
         {
-            transform.localPosition += new Vector3(-1, 0, 0) * terrainSpd * Time.deltaTime;
+            transform.localPosition += new Vector3(-1, 0, 0) * terrainSpd * 1/60f;
 
             yield return null;
         }

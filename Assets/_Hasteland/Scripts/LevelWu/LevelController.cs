@@ -19,36 +19,45 @@ public class LevelController : MonoBehaviour
     {
         poolManager = PoolManager.Instance;
 
-        despawner = transform.GetChild(1).gameObject;
-
-        StartCoroutine(SpawnIntervals());
+        //StartCoroutine(SpawnIntervals());
     }
 
     // Update is called once per frame
     void Update()
     {
+      
+    }
 
+    private void FixedUpdate()
+    {
+        SpawnTerrain();
+    }
+
+    private void SpawnTerrain()
+    {
+        float totalTime = Time.time;
+        float duration = 4f;
+
+        //Spawn a new section of the map every 4 seconds
+        if(totalTime % duration == 0)
+        {
+            spawnMapSections();
+        }
     }
 
     IEnumerator SpawnIntervals()
     {
+        float totalTime = Time.time;
+
         while (!isLevelFinished)
         {
-
-            float duration = 4.0f;
-            float totalTime = 0f;
-
-            while (totalTime % duration == 0)
+            while (Mathf.Repeat(totalTime, 4) == 0)
             {
-                totalTime = Time.time;
-                //do nothing;
+                Debug.Log("Spawning Tile " + totalTime);
+                //Not sure why this is giving null ref
+                spawnMapSections();
                 yield return null;
             }
-            Debug.Log("total time is " + totalTime);
-            //Spawn tile here
-            spawnMapSections();
-            //Reset Spawntimer;
-            totalTime = 0;
         }
     }
 
