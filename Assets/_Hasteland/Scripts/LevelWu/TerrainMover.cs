@@ -13,37 +13,41 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
     {
         if (isStartingTiles)
         {
-           StartCoroutine(moveTiles(terrainSpd));
+            StartCoroutine(moveTiles(terrainSpd));
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void FixedUpdate()
-    {
-
     }
 
     IEnumerator moveTiles(int terrainSpd)
     {
         while (true)
         {
-            transform.localPosition += new Vector3(-1, 0, 0) * terrainSpd * 1/60f;
 
             yield return null;
         }
     }
 
+    public void Update()
+    {
+        transform.localPosition += new Vector3(-1, 0, 0) * terrainSpd * 1 / 60f; //Time.deltatime messes this up majorly
+    }
+
     public void OnPooledObjSpawn()
     {
         StartCoroutine(moveTiles(terrainSpd));
+        GameHub.LevelController.currentTerrainList.Add(this.gameObject);
     }
 
     public void OnDisable()
     {
         StopCoroutine(moveTiles(terrainSpd));
+
+        if (isStartingTiles)
+        {
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            GameHub.LevelController.currentTerrainList.Remove(this.gameObject);
+        }
     }
 }

@@ -9,15 +9,18 @@ public class LevelController : MonoBehaviour
 
     public GameObject[] spawnReference;
 
+    public List<GameObject> currentTerrainList = new List<GameObject>();
+
     private GameObject despawner;
 
     private PoolManager poolManager;
 
-    public float terrainCount;
-
     private bool isLevelFinished;
 
-    private int randomInt, lastInt;
+    private int randomInt, lastInt, terrainCount;
+
+    [Range(0,20)]
+    public int TerrainSpd;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,7 @@ public class LevelController : MonoBehaviour
     void Update()
     {
         SpawnTerrain();
+        UpdateSpeed();
     }
 
     private void FixedUpdate()
@@ -43,13 +47,20 @@ public class LevelController : MonoBehaviour
     private void SpawnTerrain()
     {
         float totalTime = Time.frameCount;
-        float duration = 240f;
+        float duration = 1200f/ TerrainSpd;
 
-        //Spawn a new section of the map every 4 seconds
         if (Mathf.Repeat(totalTime, duration) == 0)
         {
             Debug.Log("Before Spawn Count" + terrainCount);
             spawnMapSections();
+        }
+    }
+
+    private void UpdateSpeed()
+    {
+        for (int i = 0; i < currentTerrainList.Count - 1; i++)
+        {
+            currentTerrainList[i].GetComponent<TerrainMover>().terrainSpd = TerrainSpd;
         }
     }
 
@@ -83,6 +94,7 @@ public class LevelController : MonoBehaviour
 
         GameObject currentTerrain =
             poolManager.SpawnFromPool(spawnReference[randomNumbers[0]].name, spawnPos.transform.position, Quaternion.identity);
+            currentTerrain.GetComponent<TerrainMover>().terrainSpd = TerrainSpd;
 
         Debug.Log("Spawned Terrain " + terrainCount + " " + currentTerrain);
     }
