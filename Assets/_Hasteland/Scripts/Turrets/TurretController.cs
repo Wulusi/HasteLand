@@ -25,47 +25,38 @@ public class TurretController : MonoBehaviour
     [System.Serializable]
     public struct TurretEvents
     {
-        public TurretEvent m_fireTurretEvent;
         public TurretEvent m_startTurretBuilding;
     }
 
     #endregion
 
+
+
+    [Header("Turret Heads")]
+    public List<TurretHead> m_attachedTurrets;
+
     [Header("DetectionRadius")]
     public float m_detectionRadius;
     public LayerMask m_detectionMask;
 
-    [Header("Rotation Variables")]
-    public Transform m_rotateY;
-    public Transform m_rotateX;
-    public float m_defaultRestingAngle, m_parabolicRestingAngle;
 
-    [Tooltip("Used to determine how close the turret needs to be in order to start slowing down. A higher number means it has to be closer.")]
-    public float m_rotationSensitivity;
-
+    
     private List<GameObject> m_targetsInRange = new List<GameObject>();
-    private GameObject m_currentTarget;
-    private TurretLevel m_turretLevel;
+    [HideInInspector]
+    public GameObject m_currentTarget;
 
-    [Header("Fire Properties")]
-    public float m_shootingAngle;
-    private bool m_canFire = true;
-    private WaitForSeconds m_fireDelay;
+
 
     [Header("DebuggingTools")]
     public bool m_debugging;
     public Color m_gizmosColor1;
-    void Start()
-    {
-        m_turretLevel = GetComponent<TurretLevel>();
-        m_fireDelay = new WaitForSeconds(m_turretLevel.m_turretFireRates[m_turretLevel.m_currentFireRateIndex].m_turretFireRate);
-    }
+
+
 
     void Update()
     {
         CheckState();
-        Debug.DrawLine(m_rotateY.position, m_rotateY.forward * 15 + m_rotateY.position, Color.red);
-        Debug.DrawLine(m_rotateX.position, m_rotateX.forward * 15 + m_rotateX.position, Color.blue);
+
     }
 
     #region StateMachine
@@ -75,17 +66,7 @@ public class TurretController : MonoBehaviour
         {
             #region Idle State
             case TurretBehaviourState.Idle:
-
-                switch (m_turretRotationType)
-                {
-                    case TurretRotationType.Default:
-                        RotateTurret(Quaternion.AngleAxis(m_defaultRestingAngle, Vector3.right) * transform.forward + transform.position, TurretRotationType.Default);
-                        break;
-                    case TurretRotationType.Parabolic:
-                        RotateTurret(Quaternion.AngleAxis(m_parabolicRestingAngle, Vector3.right) * transform.forward + transform.position, TurretRotationType.Default);
-                        break;
-                }
-                
+                RotateAllTurretsToRest();
 
 
                 CheckDetectionRadius();
@@ -105,11 +86,8 @@ public class TurretController : MonoBehaviour
                 }
                 else
                 {
-                    RotateTurret(m_currentTarget.transform.position, m_turretRotationType);
-                    if (CorrectAngle(m_currentTarget.transform.position, m_shootingAngle))
-                    {
-                        FireTurret();
-                    }
+                    RotateAllTurrets(m_currentTarget.transform.position);
+                    CheckFireOnAllTurrets();
                 }
                 break;
                 #endregion
@@ -227,124 +205,40 @@ public class TurretController : MonoBehaviour
     }
     #endregion
 
-
-
-    private void RotateTurret(Vector3 p_targetPos, TurretRotationType p_rotationType)
+    #region Rotate All Turrets
+    private void RotateAllTurrets(Vector3 p_targetPosition)
     {
-
-        #region yRotation
-
-        //Create a direction towards the target
-        Vector3 currentTarget = (new Vector3(p_targetPos.x, 0f, p_targetPos.z) - new Vector3(m_rotateY.position.x, 0, m_rotateY.position.z)).normalized * m_rotationSensitivity;
-
-        //Find out how much to rotate
-        float currentDistance = Vector3.Cross(m_rotateY.forward, (currentTarget - (m_rotateY.forward))).magnitude;
-
-        //Find out which way to rotate the Y
-        float dirToRotate = Vector3.Dot(m_rotateY.right, currentTarget - m_rotateY.forward);
-
-        //Edge case
-        if (Vector3.Angle(m_rotateY.forward, currentTarget) > 150)
+        foreach(TurretHead turret in m_attachedTurrets)
         {
-            dirToRotate = 1;
-            currentDistance = 1.5f;
-        }
-
-
-        m_rotateY.Rotate(m_rotateY.up, (currentDistance > 1 ? m_turretLevel.GetCurrentRotationSpeed() : currentDistance * m_turretLevel.GetCurrentRotationSpeed()) * Mathf.Sign(dirToRotate));
-
-        #endregion
-
-        #region xRotation
-        //Isolate the target, so only one axis has to be worked with
-        //Find the horizontal distance from the target to the turret.
-        float disXFromTransform = Vector3.Distance(new Vector3(m_rotateX.position.x, 0f, m_rotateX.position.z), new Vector3(p_targetPos.x, 0, p_targetPos.z));
-
-        //Find the difference in height
-        float disYFromTarget = Mathf.Abs(p_targetPos.y - m_rotateX.position.y);
-
-        //Use the distance and height to create a virtual target, that rotates with the y axis, thus negating the z axis
-
-
-
-
-        //Change the current target so that a parabolic calculation is used
-        if (p_rotationType == TurretRotationType.Parabolic)
-        {
-            float sqrt = (m_projectileSpeed * m_projectileSpeed * m_projectileSpeed * m_projectileSpeed) - (m_bulletGravity * (m_bulletGravity * (disXFromTransform * disXFromTransform) + 2 * disYFromTarget * (m_projectileSpeed * m_projectileSpeed)));
-            if (sqrt < 0)
-            {
-                print("No solution");
-            }
-            sqrt = Mathf.Sqrt(sqrt);
-            float calculateAnglePos = Mathf.Atan(((m_projectileSpeed * m_projectileSpeed) + sqrt) / (m_bulletGravity * disXFromTransform)) * Mathf.Rad2Deg;
-            //float calculateAngleNeg = Mathf.Atan(((m_projectileSpeed * m_projectileSpeed) - sqrt) / (m_bulletGravity * disXFromTransform)) * Mathf.Rad2Deg;
-
-            currentTarget = (Quaternion.AngleAxis(-calculateAnglePos, Vector3.right) * Vector3.forward).normalized * m_rotationSensitivity;
-            currentTarget = Quaternion.AngleAxis(m_rotateY.eulerAngles.y, Vector3.up) * currentTarget;
-            Debug.DrawLine(transform.position, transform.position + currentTarget, Color.green);
-
-
-            FireTurret();
-
-        }
-        //Use the virtual current target
-        else
-        {
-            currentTarget = m_rotateY.localRotation * new Vector3(0, disYFromTarget * (p_targetPos.y > m_rotateX.transform.position.y ? 1 : -1), disXFromTransform).normalized * m_rotationSensitivity;
-            Debug.DrawLine(m_rotateX.position, currentTarget + m_rotateX.position, Color.green);
-        }
-
-
-        currentDistance = Vector3.Cross(m_rotateX.forward, currentTarget - m_rotateX.forward).magnitude;
-        dirToRotate = Vector3.Dot(-m_rotateX.up, currentTarget - m_rotateX.forward);
-        //Edge case
-        if (Vector3.Angle(m_rotateX.forward, currentTarget) > 150)
-        {
-            dirToRotate = 1;
-            currentDistance = 1.5f;
-        }
-
-        //Rotate
-        m_rotateX.Rotate(Vector3.right, (currentDistance > 3 ? m_turretLevel.GetCurrentRotationSpeed() : currentDistance / 3 * m_turretLevel.GetCurrentRotationSpeed()) * Mathf.Sign(dirToRotate));
-
-
-
-
-
-
-
-        #endregion
-
-    }
-    public float m_bulletGravity, m_projectileSpeed;
-
-    #region Fire
-    private bool CorrectAngle(Vector3 p_targetPos, float p_stopAngle)
-    {
-        float angle = Vector3.Angle(m_rotateX.forward, new Vector3(p_targetPos.x, p_targetPos.y, p_targetPos.z) - m_rotateX.position);
-        if (angle < p_stopAngle)
-        {
-            return true;
-        }
-        return false;
-    }
-    private void FireTurret()
-    {
-        if (m_canFire)
-        {
-            m_turretEvents.m_fireTurretEvent.Invoke();
-            StartCoroutine(TurretShotRecharge());
+            turret.RotateTurret(p_targetPosition, m_turretRotationType);
         }
     }
 
-    private IEnumerator TurretShotRecharge()
+    private void RotateAllTurretsToRest()
     {
-        m_canFire = false;
-        yield return m_fireDelay;
-        m_canFire = true;
+        foreach(TurretHead turret in m_attachedTurrets)
+        {
+            turret.RotateToResting(m_turretRotationType);
+        }
     }
     #endregion
+
+
+    #region Turret Fire
+    public void CheckFireOnAllTurrets()
+    {
+        foreach(TurretHead turret in m_attachedTurrets)
+        {
+            if (turret.CorrectAngle(m_currentTarget.transform.position))
+            {
+                turret.FireTurret();
+            }
+            
+        }
+    }
+    #endregion
+
+
 
 
     private void OnDrawGizmos()
