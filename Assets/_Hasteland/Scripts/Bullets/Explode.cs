@@ -23,6 +23,7 @@ public class Explode : MonoBehaviour
 
     public void ExplodeMe()
     {
+        print("Exploide");
         Collider[] cols = Physics.OverlapSphere(transform.position, m_explodeRadius, m_explosionHitLayer);
         foreach (Collider col in cols)
         {

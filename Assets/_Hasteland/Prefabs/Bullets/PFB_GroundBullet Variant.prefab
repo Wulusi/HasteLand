@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6027608354069749649
+--- !u!1 &7013873681855562610
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6706803110125219934}
-  - component: {fileID: 2841801039349847966}
-  - component: {fileID: 5833816706883265388}
+  - component: {fileID: 9155829326465490937}
+  - component: {fileID: 1681696817706904083}
+  - component: {fileID: 31091615718377931}
   m_Layer: 11
   m_Name: Visual
   m_TagString: Untagged
@@ -18,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6706803110125219934
+--- !u!4 &9155829326465490937
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6027608354069749649}
+  m_GameObject: {fileID: 7013873681855562610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1957915923161014139}
+  m_Father: {fileID: 6962280000800266783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2841801039349847966
+--- !u!33 &1681696817706904083
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6027608354069749649}
+  m_GameObject: {fileID: 7013873681855562610}
   m_Mesh: {fileID: 4711208715938537054, guid: 9742152003a7cc348b9c54034156125e, type: 3}
---- !u!23 &5833816706883265388
+--- !u!23 &31091615718377931
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6027608354069749649}
+  m_GameObject: {fileID: 7013873681855562610}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,7 +78,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1001 &2161014802103982281
+--- !u!1001 &7370247916060057005
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -88,32 +88,22 @@ PrefabInstance:
     - target: {fileID: 492754570461775801, guid: 5c4a54685916c684d822d85cf375324b,
         type: 3}
       propertyPath: m_Name
-      value: PFB_Bullet_ArmorPiercing Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 492754570461775806, guid: 5c4a54685916c684d822d85cf375324b,
-        type: 3}
-      propertyPath: m_armorPiercing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 492754570461775806, guid: 5c4a54685916c684d822d85cf375324b,
-        type: 3}
-      propertyPath: m_debugGizmos
-      value: 1
+      value: PFB_GroundBullet
       objectReference: {fileID: 0}
     - target: {fileID: 492754570461775794, guid: 5c4a54685916c684d822d85cf375324b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.58118725
       objectReference: {fileID: 0}
     - target: {fileID: 492754570461775794, guid: 5c4a54685916c684d822d85cf375324b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 492754570461775794, guid: 5c4a54685916c684d822d85cf375324b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.674622
       objectReference: {fileID: 0}
     - target: {fileID: 492754570461775794, guid: 5c4a54685916c684d822d85cf375324b,
         type: 3}
@@ -157,9 +147,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c4a54685916c684d822d85cf375324b, type: 3}
---- !u!4 &1957915923161014139 stripped
+--- !u!4 &6962280000800266783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 492754570461775794, guid: 5c4a54685916c684d822d85cf375324b,
     type: 3}
-  m_PrefabInstance: {fileID: 2161014802103982281}
+  m_PrefabInstance: {fileID: 7370247916060057005}
   m_PrefabAsset: {fileID: 0}

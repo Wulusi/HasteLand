@@ -87,6 +87,7 @@ MonoBehaviour:
     type: 3}
   m_projectileSpeed: 40
   m_bulletDamage: 25
+  m_turretController: {fileID: 0}
 --- !u!1 &631636986137418176
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_detectionMask:
     serializedVersion: 2
     m_Bits: 4096
+  m_currentTarget: {fileID: 0}
   m_debugging: 1
   m_gizmosColor1: {r: 0, g: 1, b: 0.09169221, a: 1}
 --- !u!1 &631636986140480951
@@ -351,6 +353,7 @@ MonoBehaviour:
   m_detectionMask:
     serializedVersion: 2
     m_Bits: 4096
+  m_currentTarget: {fileID: 0}
   m_debugging: 1
   m_gizmosColor1: {r: 0, g: 1, b: 0.09169221, a: 1}
 --- !u!1 &631636986150366371
@@ -498,10 +501,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fireSpot: {fileID: 631636986590733427}
-  m_bulletPrefab: {fileID: 492754570461775801, guid: 5c4a54685916c684d822d85cf375324b,
+  m_bulletPrefab: {fileID: 6962280000800266772, guid: 8aa484ac9b755ef488b1b135389f3479,
     type: 3}
   m_projectileSpeed: 20
   m_bulletDamage: 25
+  m_turretController: {fileID: 0}
 --- !u!1 &631636986205510573
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +686,7 @@ MonoBehaviour:
     type: 3}
   m_projectileSpeed: 40
   m_bulletDamage: 25
+  m_turretController: {fileID: 0}
 --- !u!1 &631636986501454880
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +867,7 @@ MonoBehaviour:
     type: 3}
   m_projectileSpeed: 40
   m_bulletDamage: 25
+  m_turretController: {fileID: 0}
 --- !u!1 &631636986634143630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1128,7 @@ MonoBehaviour:
   m_detectionMask:
     serializedVersion: 2
     m_Bits: 4096
+  m_currentTarget: {fileID: 0}
   m_debugging: 1
   m_gizmosColor1: {r: 0, g: 1, b: 0.09169221, a: 1}
 --- !u!1 &631636986839702172
@@ -1395,6 +1402,7 @@ MonoBehaviour:
     type: 3}
   m_projectileSpeed: 40
   m_bulletDamage: 25
+  m_turretController: {fileID: 0}
 --- !u!1 &631636987093696231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,6 +2448,7 @@ MonoBehaviour:
     type: 3}
   m_projectileSpeed: 30
   m_bulletDamage: 25
+  m_turretController: {fileID: 0}
 --- !u!1 &631636987937580698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,7 +2614,42 @@ PrefabInstance:
     - target: {fileID: 6381178249607189494, guid: 8f5c17635e2363c4d95585d0e7506fbb,
         type: 3}
       propertyPath: m_Name
-      value: GroundTower Variant
+      value: GroundTower Variant Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretObject
+      value: 
+      objectReference: {fileID: 631636986140480951}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretObject
+      value: 
+      objectReference: {fileID: 631636986137418176}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretObject
+      value: 
+      objectReference: {fileID: 631636986791807317}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretCost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretCost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretCost
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6381178249607189495, guid: 8f5c17635e2363c4d95585d0e7506fbb,
         type: 3}
@@ -2661,41 +2705,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretObject
-      value: 
-      objectReference: {fileID: 631636986140480951}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretObject
-      value: 
-      objectReference: {fileID: 631636986137418176}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretObject
-      value: 
-      objectReference: {fileID: 631636986791807317}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretCost
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretCost
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretCost
-      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5c17635e2363c4d95585d0e7506fbb, type: 3}

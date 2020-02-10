@@ -14,7 +14,6 @@ public class ClusterBombsBehaviour : BulletsBehaviour
     public float m_explodeVelocity;
 
     public BulletEvent m_explodeEvent;
-    private ObjectPooler m_pooler;
     private Coroutine m_explodeInArc;
 
     [Header("Debugging Cluster")]

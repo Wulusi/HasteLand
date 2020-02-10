@@ -16,7 +16,8 @@ public class BulletsBehaviour : MonoBehaviour
     public LayerMask m_boundsLayer;
     public BulletEvent m_bulletHitEvent;
 
-    private ObjectPooler m_pooler;
+    [HideInInspector]
+    public ObjectPooler m_pooler;
     [HideInInspector]
     public float m_bulletDamage;
 
@@ -72,6 +73,7 @@ public class BulletsBehaviour : MonoBehaviour
 
     public void HitObject(GameObject p_hitObject, bool p_objectPool)
     {
+        print("Hit: " + p_hitObject.name);
         Health hitHealth = p_hitObject.GetComponent<Health>();
         if (hitHealth != null)
         {
