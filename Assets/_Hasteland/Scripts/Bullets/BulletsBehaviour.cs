@@ -95,7 +95,7 @@ public class BulletsBehaviour : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
+    public virtual void OnDrawGizmos()
     {
         if (!m_debugGizmos) return;
         Gizmos.color = m_gizmosColor1;

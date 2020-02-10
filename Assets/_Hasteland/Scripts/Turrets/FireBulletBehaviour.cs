@@ -15,7 +15,7 @@ public class FireBulletBehaviour : MonoBehaviour
     {
         m_pooler = ObjectPooler.instance;
     }
-    public void FireBullet()
+    public virtual void FireBullet()
     {
         BulletsBehaviour newBullet = m_pooler.NewObject(m_bulletPrefab, m_fireSpot.position, m_fireSpot.rotation).GetComponent<BulletsBehaviour>();
         if (m_turretController != null)
