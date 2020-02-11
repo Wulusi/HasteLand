@@ -39,6 +39,8 @@ MonoBehaviour:
     m_TypeName: BulletEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_pooler: {fileID: 0}
   m_bulletDamage: 0
+  m_rotateWithVelocity: 1
+  m_visualsTransform: {fileID: 5841931561877202020}
   m_debugGizmos: 1
   m_gizmosColor1: {r: 0.11399722, g: 1, b: 0, a: 1}
   m_gizmosColor2: {r: 1, g: 0.5473725, b: 0, a: 1}
@@ -95,7 +97,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 3adeed906c8e313439fa71c7394ebcb8,
         type: 3}
       propertyPath: m_Name
-      value: MDL_Bomb
+      value: Visuals
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3adeed906c8e313439fa71c7394ebcb8,
         type: 3}
@@ -169,6 +171,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adeed906c8e313439fa71c7394ebcb8, type: 3}
+--- !u!4 &5841931561877202020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3adeed906c8e313439fa71c7394ebcb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1470426391711108990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3125045912491693942
 PrefabInstance:
   m_ObjectHideFlags: 0

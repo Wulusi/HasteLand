@@ -19,6 +19,20 @@ MonoBehaviour:
     m_Bits: 12288
   m_debug: 1
   m_gizmoColor1: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &6722894010687064510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108281115819469264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5103fa114b8a1c646a7fb19c7cbce89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnedParticle: {fileID: 4673751391940831947, guid: 6fccdbf6600168844ba89023c39e79f4,
+    type: 3}
 --- !u!1001 &1516006245428312212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,7 +43,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 3adeed906c8e313439fa71c7394ebcb8,
         type: 3}
       propertyPath: m_Name
-      value: MDL_Bomb
+      value: Visuals
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3adeed906c8e313439fa71c7394ebcb8,
         type: 3}
@@ -103,6 +117,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adeed906c8e313439fa71c7394ebcb8, type: 3}
+--- !u!4 &5797077662247588750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3adeed906c8e313439fa71c7394ebcb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1516006245428312212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4790160079023390134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,6 +134,86 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PFB_Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1701601991}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExplodeMe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_debugGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_collisionRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_collisionDetectionMask.m_Bits
+      value: 12289
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_rotateWithVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_visualsTransform
+      value: 
+      objectReference: {fileID: 5797077662247588750}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6722894010687064510}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SpawnParticlePrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4898403670644708461, guid: 5e208f1fd16aa9844bf55992522f3c97,
         type: 3}
@@ -184,51 +284,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1701601991}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExplodeMe
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_debugGizmos
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_collisionRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_collisionDetectionMask.m_Bits
-      value: 12289
       objectReference: {fileID: 0}
     - target: {fileID: 3640463461037062275, guid: 5e208f1fd16aa9844bf55992522f3c97,
         type: 3}

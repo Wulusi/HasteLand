@@ -6,6 +6,7 @@ public class TurretHead : MonoBehaviour
 {
     [Header("Rotation Variables")]
     public float m_rotationTime;
+    public Transform m_parentTurret;
     public Transform m_rotateY;
     public Transform m_rotateX;
     public float m_defaultRestingAngle, m_parabolicRestingAngle;
@@ -46,6 +47,7 @@ public class TurretHead : MonoBehaviour
     public void RotateTurret(Vector3 p_targetPos, TurretController.TurretRotationType p_rotationType)
     {
 
+        transform.eulerAngles = new Vector3(0, 0, 0);
         #region yRotation
 
         //Create a direction towards the target

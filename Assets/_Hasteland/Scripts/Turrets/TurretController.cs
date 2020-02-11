@@ -206,7 +206,7 @@ public class TurretController : MonoBehaviour
     #endregion
 
     #region Rotate All Turrets
-    private void RotateAllTurrets(Vector3 p_targetPosition)
+    public virtual void RotateAllTurrets(Vector3 p_targetPosition)
     {
         foreach(TurretHead turret in m_attachedTurrets)
         {

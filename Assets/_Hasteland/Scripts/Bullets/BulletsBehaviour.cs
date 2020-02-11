@@ -21,7 +21,10 @@ public class BulletsBehaviour : MonoBehaviour
     [HideInInspector]
     public float m_bulletDamage;
 
-
+    
+    [Header("Visuals")]
+    public bool m_rotateWithVelocity;
+    public Transform m_visualsTransform;
 
     [Header("Debugging")]
     public bool m_debugGizmos;
@@ -70,10 +73,15 @@ public class BulletsBehaviour : MonoBehaviour
         }
     }
 
-
+    private void Update()
+    {
+        if (m_rotateWithVelocity)
+        {
+            m_visualsTransform.LookAt(transform.position + m_velocity);
+        }
+    }
     public void HitObject(GameObject p_hitObject, bool p_objectPool)
     {
-        print("Hit: " + p_hitObject.name);
         Health hitHealth = p_hitObject.GetComponent<Health>();
         if (hitHealth != null)
         {

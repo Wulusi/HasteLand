@@ -103,6 +103,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c69f33e4252dab4468303dc83150c877, type: 3}
+--- !u!4 &6889575704868193323 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: c69f33e4252dab4468303dc83150c877,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938241462886805297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5005080404973778508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,6 +121,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_MiniBomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 489787183}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExplodeMe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_debugGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_collisionDetectionMask.m_Bits
+      value: 12289
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_rotateWithVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
+        type: 3}
+      propertyPath: m_visualsTransform
+      value: 
+      objectReference: {fileID: 6889575704868193323}
     - target: {fileID: 4898403670644708461, guid: 5e208f1fd16aa9844bf55992522f3c97,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -169,46 +225,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 489787183}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExplodeMe
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_bulletHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_debugGizmos
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898403670644708449, guid: 5e208f1fd16aa9844bf55992522f3c97,
-        type: 3}
-      propertyPath: m_collisionDetectionMask.m_Bits
-      value: 12289
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e208f1fd16aa9844bf55992522f3c97, type: 3}
