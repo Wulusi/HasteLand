@@ -52,10 +52,10 @@ MonoBehaviour:
   m_collisionRadius: 0.22
   m_collisionDetectionMask:
     serializedVersion: 2
-    m_Bits: 8193
+    m_Bits: 40961
   m_boundsLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 32769
   m_bulletHitEvent:
     m_PersistentCalls:
       m_Calls:

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5411854880609120710}
   - component: {fileID: 1254065547431171640}
   - component: {fileID: 728890328682278112}
+  - component: {fileID: 398366479}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -109,6 +110,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &398366479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020564709574174183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502187cfc004c7941b03a69de4c1fc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_terrainLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &2205626555450373120
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +138,7 @@ GameObject:
   - component: {fileID: 5528566158570338186}
   - component: {fileID: 3534912760700915723}
   - component: {fileID: 5936113168609888856}
+  - component: {fileID: 741188421}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -218,6 +235,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &741188421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205626555450373120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502187cfc004c7941b03a69de4c1fc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_terrainLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &2364737560736445949
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +263,7 @@ GameObject:
   - component: {fileID: 7463995047481818729}
   - component: {fileID: 2063047398580062174}
   - component: {fileID: 9155409845277420481}
+  - component: {fileID: 201992988}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -327,6 +360,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &201992988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364737560736445949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502187cfc004c7941b03a69de4c1fc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_terrainLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &2827164858911129147
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +388,7 @@ GameObject:
   - component: {fileID: 6383457546685683599}
   - component: {fileID: 2144150559365244647}
   - component: {fileID: 4600423012408706241}
+  - component: {fileID: 1263621976}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -436,6 +485,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1263621976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827164858911129147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502187cfc004c7941b03a69de4c1fc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_terrainLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &5381939712457991135
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +513,7 @@ GameObject:
   - component: {fileID: 5564349949678023487}
   - component: {fileID: 2614150992306664118}
   - component: {fileID: 3227939799938654216}
+  - component: {fileID: 1329478654}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -545,6 +610,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1329478654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381939712457991135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502187cfc004c7941b03a69de4c1fc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_terrainLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &6494271271059619922
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4673751391940831949}
   - component: {fileID: 4673751391940831946}
   - component: {fileID: 5490712943781227538}
+  - component: {fileID: -8258700533541140385}
   m_Layer: 0
   m_Name: FX_ExplosionParticle
   m_TagString: Untagged
@@ -4825,3 +4826,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_destructTime: 0
+--- !u!114 &-8258700533541140385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673751391940831947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502187cfc004c7941b03a69de4c1fc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_terrainLayer:
+    serializedVersion: 2
+    m_Bits: 32768

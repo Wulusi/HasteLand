@@ -72,6 +72,16 @@ PrefabInstance:
       propertyPath: m_heatSeeking
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8041420988096229140, guid: 4b5d308d304217a41aba626057274486,
+        type: 3}
+      propertyPath: m_boundsLayer.m_Bits
+      value: 32769
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041420988096229140, guid: 4b5d308d304217a41aba626057274486,
+        type: 3}
+      propertyPath: m_collisionDetectionMask.m_Bits
+      value: 40961
+      objectReference: {fileID: 0}
     - target: {fileID: 1980626290166228091, guid: 4b5d308d304217a41aba626057274486,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r

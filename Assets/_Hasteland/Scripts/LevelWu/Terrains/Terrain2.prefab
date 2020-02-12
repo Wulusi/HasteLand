@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3787611674315274957}
   - component: {fileID: 3787611674315274958}
   - component: {fileID: 3787611674315274954}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Terrain2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,5 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98bdc07824d47849998aeb2de9425a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartingTiles: 0
   terrainSpd: 5
   isLevelComplete: 0
