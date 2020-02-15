@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingTiles: 1
-  terrainSpd: 5
+  terrainSpd: 40
   isLevelComplete: 0
 --- !u!65 &137694342
 BoxCollider:
@@ -532,7 +532,7 @@ MonoBehaviour:
   - {fileID: 1304192892600507621, guid: d46b2d43305b57c4a9b0a8c0bac9ca11, type: 3}
   - {fileID: 6268932335769736316, guid: a045d5a0f27faf04b8d66331405e7c81, type: 3}
   currentTerrainList: []
-  TerrainSpd: 20
+  TerrainSpd: 40
 --- !u!1 &520467357
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingTiles: 1
-  terrainSpd: 5
+  terrainSpd: 40
   isLevelComplete: 0
 --- !u!65 &764025305
 BoxCollider:
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingTiles: 1
-  terrainSpd: 5
+  terrainSpd: 40
   isLevelComplete: 0
 --- !u!65 &1712820898
 BoxCollider:
@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingTiles: 1
-  terrainSpd: 5
+  terrainSpd: 40
   isLevelComplete: 0
 --- !u!65 &1988056034
 BoxCollider:
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingTiles: 1
-  terrainSpd: 5
+  terrainSpd: 40
   isLevelComplete: 0
 --- !u!65 &2105683202
 BoxCollider:
@@ -1420,7 +1420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6196538450030042432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0876, y: 0.6164, z: 0.12}
   m_LocalScale: {x: 4.6048, y: 2.0728, z: 1}
   m_Children: []
   m_Father: {fileID: 1388103110960206336}
@@ -1480,7 +1480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5914248711486199430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.73, y: -0.92, z: -0.88}
+  m_LocalPosition: {x: 1.7148, y: -0.92, z: -0.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1388103110960206336}
@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb8c6d5f4d3acc48b886467ba05b4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 1000
+  m_maxHealth: 200
   m_currentHealth: 0
   m_isDead: 0
   m_onDied:
@@ -1752,7 +1752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4584601803027336034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.73, y: -0.92, z: 0.88}
+  m_LocalPosition: {x: 1.7148, y: -0.92, z: 1.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1388103110960206336}
