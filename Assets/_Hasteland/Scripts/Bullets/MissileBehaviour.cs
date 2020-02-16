@@ -36,6 +36,7 @@ public class MissileBehaviour : BulletsBehaviour
 
     public override void FixedUpdate()
     {
+        if (AmIPaused()) return;
         if (m_heatSeeking)
         {
             RotateMissile(m_targetUnit.position);

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6381178249607189495}
   - component: {fileID: 6381178249607189496}
-  m_Layer: 0
+  - component: {fileID: 5340836684962715416}
+  m_Layer: 19
   m_Name: TowerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentUpgradeLevel: 0
   m_turretUpgradeLevels: []
+--- !u!65 &5340836684962715416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6381178249607189494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 5, z: 4}
+  m_Center: {x: 0, y: 3.34, z: 0}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretHead : MonoBehaviour
+public class TurretHead : MonoBehaviour, IPausable
 {
     [Header("Rotation Variables")]
     public float m_rotationTime;
@@ -25,11 +25,10 @@ public class TurretHead : MonoBehaviour
     public float m_fireDelayTime;
     public float m_shootingAngle;
     private bool m_canFire = true;
-    private WaitForSeconds m_fireDelay;
     public TurretEvent m_fireTurretEvent;
     public virtual void Start()
     {
-        m_fireDelay = new WaitForSeconds(m_fireDelayTime);
+        AddMeToPauseManager(PauseManager.Instance);
     }
     public void RotateToResting(TurretController.TurretRotationType p_turretRotationType)
     {
@@ -156,7 +155,34 @@ public class TurretHead : MonoBehaviour
     private IEnumerator TurretShotRecharge()
     {
         m_canFire = false;
-        yield return m_fireDelay;
+        float timer = 0;
+        while (timer < m_fireDelayTime)
+        {
+            yield return null;
+            if (!m_isPaused)
+            {
+                
+                timer += Time.deltaTime;
+            }
+        }
         m_canFire = true;
     }
+
+    #region Pausing
+    private bool m_isPaused;
+    public void SetPauseState(bool p_paused)
+    {
+        m_isPaused = p_paused;
+    }
+
+    public bool AmIPaused()
+    {
+        return m_isPaused;
+    }
+
+    public void AddMeToPauseManager(PauseManager p_pauseManager)
+    {
+        p_pauseManager.AddNewObject(this);
+    }
+    #endregion
 }

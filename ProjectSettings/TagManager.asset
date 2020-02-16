@@ -24,7 +24,7 @@ TagManager:
   - TerrainManager
   - 
   - BuildingSpots
-  - 
+  - TurretSpot
   - 
   - 
   - 

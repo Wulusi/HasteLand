@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationTime: 5
+  m_parentTurret: {fileID: 0}
   m_rotateY: {fileID: 1462223753}
   m_rotateX: {fileID: 164790069}
   m_defaultRestingAngle: 15
@@ -438,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationTime: 5
+  m_parentTurret: {fileID: 0}
   m_rotateY: {fileID: 617516767}
   m_rotateX: {fileID: 1295856371}
   m_defaultRestingAngle: 15
@@ -885,6 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationTime: 5
+  m_parentTurret: {fileID: 0}
   m_rotateY: {fileID: 1678468663}
   m_rotateX: {fileID: 315453778}
   m_defaultRestingAngle: 15
@@ -1523,7 +1526,7 @@ PrefabInstance:
     - target: {fileID: 6381178249607189494, guid: 8f5c17635e2363c4d95585d0e7506fbb,
         type: 3}
       propertyPath: m_Name
-      value: Air Defense Tower
+      value: Air Defense Tower Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6381178249607189495, guid: 8f5c17635e2363c4d95585d0e7506fbb,
         type: 3}
@@ -1615,6 +1618,11 @@ PrefabInstance:
       propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretObject
       value: 
       objectReference: {fileID: 872158559}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_towerTypeIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5c17635e2363c4d95585d0e7506fbb, type: 3}
 --- !u!4 &4716966270607406842 stripped

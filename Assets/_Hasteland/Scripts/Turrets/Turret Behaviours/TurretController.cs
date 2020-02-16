@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class TurretEvent : UnityEngine.Events.UnityEvent { }
-public class TurretController : MonoBehaviour
+public class TurretController : MonoBehaviour, IPausable
 {
     public enum TurretRotationType
     {
@@ -51,10 +52,16 @@ public class TurretController : MonoBehaviour
     public bool m_debugging;
     public Color m_gizmosColor1;
 
+    private void Start()
+    {
+        AddMeToPauseManager(PauseManager.Instance);
+    }
+
 
 
     void Update()
     {
+        if (m_isPaused) return;
         CheckState();
 
     }
@@ -248,4 +255,17 @@ public class TurretController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, m_detectionRadius);
 
     }
+
+    #region Pausing
+    private bool m_isPaused;
+    public void SetPauseState(bool p_paused)
+    {
+        m_isPaused = p_paused;
+    }
+
+    public void AddMeToPauseManager(PauseManager p_pauseManager)
+    {
+        p_pauseManager.AddNewObject(this);
+    }
+    #endregion
 }

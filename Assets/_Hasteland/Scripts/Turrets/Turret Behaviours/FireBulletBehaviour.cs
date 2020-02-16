@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBulletBehaviour : MonoBehaviour
+public class FireBulletBehaviour : MonoBehaviour, IPausable
 {
     public Transform m_fireSpot;
     public GameObject m_bulletPrefab;
@@ -14,6 +14,7 @@ public class FireBulletBehaviour : MonoBehaviour
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
+        AddMeToPauseManager(PauseManager.Instance);
     }
     public virtual void FireBullet()
     {
@@ -28,4 +29,22 @@ public class FireBulletBehaviour : MonoBehaviour
         }
         
     }
+
+    #region Pausing
+    private bool m_isPaused;
+    public void SetPauseState(bool p_paused)
+    {
+        m_isPaused = p_paused;
+    }
+
+    public bool AmIPaused()
+    {
+        return m_isPaused;
+    }
+
+    public void AddMeToPauseManager(PauseManager p_pauseManager)
+    {
+        p_pauseManager.AddNewObject(this);
+    }
+    #endregion
 }

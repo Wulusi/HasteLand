@@ -21,8 +21,8 @@ public class ObjectPooler : MonoBehaviour
     #region Object pooler
     void Awake()
     {
-        
-        if(instance != null)
+
+        if (instance != null)
         {
             Destroy(this.gameObject);
         }
@@ -32,6 +32,8 @@ public class ObjectPooler : MonoBehaviour
         }
         InitialGrowth();
     }
+
+
 
     ///<Summary>
     //returns an object from the pooled objects
@@ -102,7 +104,7 @@ public class ObjectPooler : MonoBehaviour
         GameObject newObject = objectPool[poolName].Dequeue();
         if (objectPool[poolName].Count == 0)
         {
-                IncreasePool(poolName, newObject, newObject.transform.parent);
+            IncreasePool(poolName, newObject, newObject.transform.parent);
         }
 
         newObject.transform.position = spawnPostion;
@@ -121,19 +123,19 @@ public class ObjectPooler : MonoBehaviour
         {
             GameObject newObj = Instantiate(pooledObject);
 
-                newObj.transform.parent = poolParent;
-            
+            newObj.transform.parent = poolParent;
+
             newObj.SetActive(false);
             newObj.name = pooledObject.name;
             objectPool[poolName].Enqueue(newObj);
 
 
 
-           
+
         }
     }
 
-    
+
 
     ///<summary>
     ///Returns the object to it's designated pool
@@ -152,7 +154,7 @@ public class ObjectPooler : MonoBehaviour
 
 
 
-    
+
     ///<summary>
     ///This function is only called at start
     ///creates all the pools, and puts then under the right transform
@@ -194,10 +196,11 @@ public class ObjectPooler : MonoBehaviour
     }
 
 
-   
+
     #endregion
 
 
 
-   
+
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class BulletEvent : UnityEngine.Events.UnityEvent { }
 
-public class BulletsBehaviour : MonoBehaviour
+public class BulletsBehaviour : MonoBehaviour, IPausable
 {
     [Header("Bullet Physics")]
     public Vector3 m_velocity;
@@ -34,9 +34,11 @@ public class BulletsBehaviour : MonoBehaviour
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
+        AddMeToPauseManager(PauseManager.Instance);
     }
     public virtual void FixedUpdate()
     {
+        if (AmIPaused()) return;
         m_velocity = new Vector3(m_velocity.x, m_velocity.y - (Mathf.Abs(m_gravity) / 50), m_velocity.z);
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, m_collisionRadius, m_velocity.normalized, out hit, m_velocity.magnitude * Time.fixedDeltaTime, m_collisionDetectionMask))
@@ -115,4 +117,21 @@ public class BulletsBehaviour : MonoBehaviour
     }
 
 
+    #region Pausing
+    private bool m_pausing;
+    public void SetPauseState(bool p_paused)
+    {
+        m_pausing = p_paused;
+    }
+
+    public bool AmIPaused()
+    {
+        return m_pausing;
+    }
+
+    public void AddMeToPauseManager(PauseManager p_pauseManager)
+    {
+        p_pauseManager.AddNewObject(this);
+    }
+    #endregion
 }
