@@ -221,7 +221,7 @@ public class TurretController : MonoBehaviour, IPausable
         }
     }
 
-    private void RotateAllTurretsToRest()
+    public virtual void RotateAllTurretsToRest()
     {
         foreach(TurretHead turret in m_attachedTurrets)
         {

@@ -34,4 +34,29 @@ public class TurretController_Rotate : TurretController
 
         base.RotateAllTurrets(p_targetPosition);
     }
+
+    public override void RotateAllTurretsToRest()
+    {
+        //Create a direction towards the target
+        Vector3 targetPosition = transform.parent.position + transform.parent.forward;
+        Vector3 currentTarget = (new Vector3(targetPosition.x, 0f, targetPosition.z) - new Vector3(transform.position.x, 0, transform.position.z)).normalized * m_rotationSensitivity;
+
+        //Find out how much to rotate
+        float currentDistance = Vector3.Cross(transform.forward, (currentTarget - (transform.forward))).magnitude;
+
+        //Find out which way to rotate the Y
+        float dirToRotate = Vector3.Dot(transform.right, currentTarget - transform.forward);
+
+        //Edge case
+        if (Vector3.Angle(transform.forward, currentTarget) > 150)
+        {
+            dirToRotate = 1;
+            currentDistance = 1.5f;
+        }
+
+
+        transform.Rotate(transform.up, (currentDistance > 1 ? m_rotationTime : currentDistance * m_rotationTime) * Mathf.Sign(dirToRotate));
+
+        base.RotateAllTurretsToRest();
+    }
 }
