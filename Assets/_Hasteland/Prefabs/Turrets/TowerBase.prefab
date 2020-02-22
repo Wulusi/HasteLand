@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6381178249607189495}
   - component: {fileID: 6381178249607189496}
   - component: {fileID: 5340836684962715416}
+  - component: {fileID: 400940047757952395}
   m_Layer: 19
   m_Name: TowerBase
   m_TagString: Untagged
@@ -44,8 +45,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582e7e04bbc8b644b95d95cd6baf44a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_towerTypeIndex: 0
   m_currentUpgradeLevel: 0
   m_turretUpgradeLevels: []
+  m_turretUpgradeEvents:
+    m_turretDestroyedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 400940047757952395}
+          m_MethodName: SpawnParticlePrefab
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TurretEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!65 &5340836684962715416
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59,3 +78,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 5, z: 4}
   m_Center: {x: 0, y: 3.34, z: 0}
+--- !u!114 &400940047757952395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6381178249607189494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5103fa114b8a1c646a7fb19c7cbce89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnedParticle: {fileID: 4673751391940831947, guid: 6fccdbf6600168844ba89023c39e79f4,
+    type: 3}
+  m_particleOffset: {x: 0, y: 4.05, z: 0}
+  m_isDebugging: 0
+  m_gizmosColor1: {r: 1, g: 0, b: 0, a: 1}

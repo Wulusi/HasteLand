@@ -26,9 +26,13 @@ public class TurretHead : MonoBehaviour, IPausable
     public float m_shootingAngle;
     private bool m_canFire = true;
     public TurretEvent m_fireTurretEvent;
+
+    private Quaternion m_defaultRotationX, m_defaultRotationY;
     public virtual void Start()
     {
         AddMeToPauseManager(PauseManager.Instance);
+        m_defaultRotationX = m_rotateX.rotation;
+        m_defaultRotationY = m_rotateY.rotation;
     }
     public void RotateToResting(TurretController.TurretRotationType p_turretRotationType)
     {
@@ -133,6 +137,12 @@ public class TurretHead : MonoBehaviour, IPausable
 
     }
 
+    public void RotateToDefault()
+    {
+        m_rotateY.rotation = m_defaultRotationY;
+        m_rotateX.rotation = m_defaultRotationX;
+    }
+
     public bool CorrectAngle(Vector3 p_targetPos)
     {
         float angle = Vector3.Angle(m_rotateX.forward, new Vector3(p_targetPos.x, p_targetPos.y, p_targetPos.z) - m_rotateX.position);
@@ -165,6 +175,11 @@ public class TurretHead : MonoBehaviour, IPausable
                 timer += Time.deltaTime;
             }
         }
+        m_canFire = true;
+    }
+
+    private void OnDisable()
+    {
         m_canFire = true;
     }
 

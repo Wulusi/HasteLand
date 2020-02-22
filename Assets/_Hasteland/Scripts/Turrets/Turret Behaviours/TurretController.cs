@@ -125,8 +125,10 @@ public class TurretController : MonoBehaviour, IPausable
 
     public void StartBuilding()
     {
+        RotateAllTurretsToDefault();
         ChangeState(TurretBehaviourState.BeingBuilt);
         m_turretEvents.m_startTurretBuilding.Invoke();
+        
     }
     #endregion
 
@@ -227,6 +229,15 @@ public class TurretController : MonoBehaviour, IPausable
         {
             turret.RotateToResting(m_turretRotationType);
         }
+    }
+
+    public virtual void RotateAllTurretsToDefault()
+    {
+        foreach (TurretHead turret in m_attachedTurrets)
+        {
+            turret.RotateToDefault();
+        }
+
     }
     #endregion
 

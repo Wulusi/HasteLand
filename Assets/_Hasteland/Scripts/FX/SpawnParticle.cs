@@ -6,6 +6,7 @@ public class SpawnParticle : MonoBehaviour
 {
     public GameObject m_spawnedParticle;
     private ObjectPooler m_pooler;
+    public Vector3 m_particleOffset;
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
@@ -24,7 +25,7 @@ public class SpawnParticle : MonoBehaviour
     /// </summary>
     public void SpawnParticlePrefab()
     {
-        m_pooler.NewObject(m_spawnedParticle, transform.position, Quaternion.identity);
+        m_pooler.NewObject(m_spawnedParticle, transform.position + m_particleOffset, Quaternion.identity);
     }
     /// <summary>
     /// Spawns a line renderer, and requires a starting position, and ending position.
@@ -37,5 +38,15 @@ public class SpawnParticle : MonoBehaviour
 
         newLine.SetPosition(0, p_startingPos);
         newLine.SetPosition(1, p_endingPos);
+    }
+
+    [Header("Debugging")]
+    public bool m_isDebugging;
+    public Color m_gizmosColor1;
+    private void OnDrawGizmos()
+    {
+        if (!m_isDebugging) return;
+        Gizmos.color = m_gizmosColor1;
+        Gizmos.DrawSphere(transform.position + m_particleOffset, .5f);
     }
 }

@@ -1420,11 +1420,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6381178249607189494, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_Name
-      value: GroundTower Variant Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
         type: 3}
       propertyPath: m_turretUpgradeLevels.Array.size
@@ -1460,6 +1455,26 @@ PrefabInstance:
       propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretObject
       value: 
       objectReference: {fileID: 631636986791807317}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[0].m_returnValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[1].m_returnValue
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[2].m_returnValue
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189494, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_Name
+      value: GroundTower Variant Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 6381178249607189495, guid: 8f5c17635e2363c4d95585d0e7506fbb,
         type: 3}
       propertyPath: m_LocalPosition.x

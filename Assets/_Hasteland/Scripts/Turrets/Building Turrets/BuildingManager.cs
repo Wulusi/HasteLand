@@ -247,6 +247,7 @@ public class BuildingManager : MonoBehaviour, IPausable
         //Destroy turret
         else if (p_buttonType == 1)
         {
+            m_currencyManager.GiveCurrency(m_currentTurretUpgrade.GetCurrentReturnCost());
             m_currentTurretUpgrade.DestroyTurret();
         }
         //p_button == 3 when you just wanna close the menu;

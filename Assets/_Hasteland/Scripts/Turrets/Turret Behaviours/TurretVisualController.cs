@@ -29,8 +29,9 @@ public class TurretVisualController : MonoBehaviour
     }
     public void StartBuilding()
     {
-        m_animCont.SetBool(m_animNames.m_startBuilding, true);
         m_turretEvents.m_startBuildingEvent.Invoke();
+        m_animCont.SetBool(m_animNames.m_startBuilding, true);
+        
     }
 
     public void FinishedBuilding()
