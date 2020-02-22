@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used on the destroyed version gameobject. Does not spawn the object.
+/// </summary>
 public class SpawnDestroyed_Prefab : MonoBehaviour
 {
     public List<Transform> m_objects;
