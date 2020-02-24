@@ -34,6 +34,7 @@ MonoBehaviour:
   m_spawnedParticle: {fileID: 4673751391940831947, guid: 6fccdbf6600168844ba89023c39e79f4,
     type: 3}
   m_particleOffset: {x: 0, y: 0, z: 0}
+  m_matchedTransform: {fileID: 0}
   m_isDebugging: 0
   m_gizmosColor1: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1938241462886805297
