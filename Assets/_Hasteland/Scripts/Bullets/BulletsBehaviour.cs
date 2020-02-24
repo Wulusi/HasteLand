@@ -14,6 +14,7 @@ public class BulletsBehaviour : MonoBehaviour, IPausable
     public float m_collisionRadius;
     public LayerMask m_collisionDetectionMask;
     public LayerMask m_boundsLayer;
+    public BulletEvent m_bulletSpawnedEvent;
     public BulletEvent m_bulletHitEvent;
 
     [HideInInspector]
@@ -104,6 +105,7 @@ public class BulletsBehaviour : MonoBehaviour, IPausable
     {
         m_velocity = p_newVelocity;
         m_bulletDamage = p_damage;
+        m_bulletSpawnedEvent.Invoke();
 
     }
 
