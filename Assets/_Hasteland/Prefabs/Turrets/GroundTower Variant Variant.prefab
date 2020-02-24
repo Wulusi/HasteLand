@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 631636986035886237}
   - component: {fileID: 631636986035886235}
   - component: {fileID: 631636986035886234}
+  - component: {fileID: 5818414173007308137}
   m_Layer: 0
   m_Name: Turret Head
   m_TagString: Untagged
@@ -70,6 +71,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5818414173007308137}
+        m_MethodName: SpawnParticleWithRotation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: TurretEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &631636986035886234
 MonoBehaviour:
@@ -89,6 +101,24 @@ MonoBehaviour:
   m_projectileSpeed: 20
   m_bulletDamage: 25
   m_turretController: {fileID: 0}
+--- !u!114 &5818414173007308137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631636986035886236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5103fa114b8a1c646a7fb19c7cbce89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnedParticle: {fileID: 658863340800344453, guid: 08abf3f6207b4814c86301fc4395a797,
+    type: 3}
+  m_particleOffset: {x: 0, y: 0, z: 0}
+  m_matchedTransform: {fileID: 631636986590733427}
+  m_isDebugging: 0
+  m_gizmosColor1: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &631636986137418176
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +398,7 @@ GameObject:
   - component: {fileID: 631636986486631310}
   - component: {fileID: 631636986486631308}
   - component: {fileID: 631636986486631311}
+  - component: {fileID: 4076387925479594481}
   m_Layer: 0
   m_Name: Turret Head (1)
   m_TagString: Untagged
@@ -427,6 +458,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4076387925479594481}
+        m_MethodName: SpawnParticleWithRotation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: TurretEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &631636986486631311
 MonoBehaviour:
@@ -446,6 +488,24 @@ MonoBehaviour:
   m_projectileSpeed: 40
   m_bulletDamage: 25
   m_turretController: {fileID: 0}
+--- !u!114 &4076387925479594481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631636986486631313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5103fa114b8a1c646a7fb19c7cbce89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnedParticle: {fileID: 658863340800344453, guid: 08abf3f6207b4814c86301fc4395a797,
+    type: 3}
+  m_particleOffset: {x: 0, y: 0, z: 0}
+  m_matchedTransform: {fileID: 631636987727415188}
+  m_isDebugging: 0
+  m_gizmosColor1: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &631636986590733426
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,8 +563,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 631636987387981459}
   - {fileID: 7072565293050977383}
+  - {fileID: 631636987387981459}
   m_Father: {fileID: 631636986035886237}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -770,7 +830,7 @@ Transform:
   - {fileID: 631636986590733427}
   - {fileID: 8726058908612251611}
   m_Father: {fileID: 631636986609043124}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &631636987727415191
 GameObject:
@@ -875,6 +935,7 @@ GameObject:
   - component: {fileID: 631636987884854613}
   - component: {fileID: 631636987884854611}
   - component: {fileID: 631636987884854610}
+  - component: {fileID: 8063766640427827015}
   m_Layer: 0
   m_Name: Turret Head
   m_TagString: Untagged
@@ -934,6 +995,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8063766640427827015}
+        m_MethodName: SpawnParticleWithRotation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: TurretEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &631636987884854610
 MonoBehaviour:
@@ -953,6 +1025,24 @@ MonoBehaviour:
   m_projectileSpeed: 30
   m_bulletDamage: 25
   m_turretController: {fileID: 0}
+--- !u!114 &8063766640427827015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631636987884854612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5103fa114b8a1c646a7fb19c7cbce89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnedParticle: {fileID: 658863340800344453, guid: 08abf3f6207b4814c86301fc4395a797,
+    type: 3}
+  m_particleOffset: {x: 0, y: 0, z: 0}
+  m_matchedTransform: {fileID: 631636987806882968}
+  m_isDebugging: 0
+  m_gizmosColor1: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &631636987982363683
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1086,7 @@ GameObject:
   - component: {fileID: 9003101452669719968}
   - component: {fileID: 3391344215335815630}
   - component: {fileID: 8476972382710946297}
+  - component: {fileID: 8855992681482388190}
   m_Layer: 0
   m_Name: Turret Head
   m_TagString: Untagged
@@ -1055,6 +1146,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8855992681482388190}
+        m_MethodName: SpawnParticleWithRotation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: TurretEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &8476972382710946297
 MonoBehaviour:
@@ -1074,6 +1176,24 @@ MonoBehaviour:
   m_projectileSpeed: 40
   m_bulletDamage: 25
   m_turretController: {fileID: 0}
+--- !u!114 &8855992681482388190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947767721758790294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5103fa114b8a1c646a7fb19c7cbce89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnedParticle: {fileID: 658863340800344453, guid: 08abf3f6207b4814c86301fc4395a797,
+    type: 3}
+  m_particleOffset: {x: 0, y: 0, z: 0}
+  m_matchedTransform: {fileID: 631636986634143631}
+  m_isDebugging: 0
+  m_gizmosColor1: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2665584827947762661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1225,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 4, z: 0.25}
   m_Children: []
   m_Father: {fileID: 631636986609043124}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2585033161795825155
 MeshFilter:
@@ -1420,56 +1540,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretCost
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretObject
-      value: 
-      objectReference: {fileID: 631636986140480951}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretCost
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretObject
-      value: 
-      objectReference: {fileID: 631636986137418176}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretCost
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretObject
-      value: 
-      objectReference: {fileID: 631636986791807317}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[0].m_returnValue
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[1].m_returnValue
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
-        type: 3}
-      propertyPath: m_turretUpgradeLevels.Array.data[2].m_returnValue
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 6381178249607189494, guid: 8f5c17635e2363c4d95585d0e7506fbb,
         type: 3}
       propertyPath: m_Name
@@ -1529,6 +1599,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretCost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[0].m_newTurretObject
+      value: 
+      objectReference: {fileID: 631636986140480951}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretCost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[1].m_newTurretObject
+      value: 
+      objectReference: {fileID: 631636986137418176}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretCost
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[2].m_newTurretObject
+      value: 
+      objectReference: {fileID: 631636986791807317}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[0].m_returnValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[1].m_returnValue
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381178249607189496, guid: 8f5c17635e2363c4d95585d0e7506fbb,
+        type: 3}
+      propertyPath: m_turretUpgradeLevels.Array.data[2].m_returnValue
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5c17635e2363c4d95585d0e7506fbb, type: 3}
