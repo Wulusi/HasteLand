@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_followTransform: {fileID: 0}
-  m_lifespanAfterTransform: 3
+  m_lifespanAfterTransform: 1
 --- !u!96 &1261473641975989979
 TrailRenderer:
   serializedVersion: 2
