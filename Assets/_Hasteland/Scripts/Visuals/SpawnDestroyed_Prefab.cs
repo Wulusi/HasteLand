@@ -9,6 +9,7 @@ public class SpawnDestroyed_Prefab : MonoBehaviour
 {
     public List<Transform> m_objects;
     private List<Vector3> m_objectsStarts = new List<Vector3>();
+    private List<Quaternion> m_objectStartingRotation = new List<Quaternion>();
 
     private List<Rigidbody> m_rbs = new List<Rigidbody>();
     public float m_explosionForce;
@@ -30,7 +31,8 @@ public class SpawnDestroyed_Prefab : MonoBehaviour
         m_delay = new WaitForSeconds(m_maxLifespan);
         foreach (Transform newObj in m_objects)
         {
-            m_objectsStarts.Add(newObj.transform.position);
+            m_objectsStarts.Add(transform.InverseTransformPoint(newObj.transform.position));
+            m_objectStartingRotation.Add(newObj.transform.rotation);
             Rigidbody rb = newObj.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -46,10 +48,7 @@ public class SpawnDestroyed_Prefab : MonoBehaviour
             m_initialized = true;
             Initiate();
         }
-        foreach (Transform currentObject in m_objects)
-        {
-            currentObject.transform.position = m_objectsStarts[m_objects.IndexOf(currentObject)];
-        }
+
         foreach (Rigidbody rb in m_rbs)
         {
             rb.velocity = p_addedVelocity;
@@ -68,6 +67,21 @@ public class SpawnDestroyed_Prefab : MonoBehaviour
     private IEnumerator Lifespan()
     {
         yield return m_delay;
+        ResetMe();
         m_pooler.ReturnToPool(this.gameObject);
+    }
+
+    private void ResetMe()
+    {
+        foreach (Rigidbody rb in m_rbs)
+        {
+            rb.velocity = Vector3.zero;
+        }
+
+        foreach (Transform currentObj in m_objects)
+        {
+            currentObj.transform.rotation = m_objectStartingRotation[m_objects.IndexOf(currentObj)];
+            currentObj.transform.localPosition = m_objectsStarts[m_objects.IndexOf(currentObj)];
+        }
     }
 }

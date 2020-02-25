@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
     {
         StopAllCoroutines();
         m_currentHealth = m_maxHealth;
+        m_isDead = false;
         if (m_useShields) m_currentShieldStrength = m_maxShieldStrength;
     }
 

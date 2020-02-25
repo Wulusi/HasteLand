@@ -37,9 +37,19 @@ public class MissileBehaviour : BulletsBehaviour
     public override void FixedUpdate()
     {
         if (AmIPaused()) return;
+
         if (m_heatSeeking)
         {
-            RotateMissile(m_targetUnit.position);
+            if (m_targetUnit!= null)
+            {
+                
+                RotateMissile(m_targetUnit.position);
+                if (!m_targetUnit.gameObject.activeSelf)
+                {
+                    m_targetUnit = null;
+                }
+            }
+            
         }
         Vector3 velocity = transform.forward * m_missileSpeed * Time.fixedDeltaTime;
         RaycastHit hit;
