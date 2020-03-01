@@ -19,4 +19,8 @@ public class AddCurency : MonoBehaviour
     {
         m_currencyManager.GiveCurrency(m_amountToGive);
     }
+    public void AddAmmo()
+    {
+        GameHub.AmmoManager.GiveAmmo();
+    }
 }

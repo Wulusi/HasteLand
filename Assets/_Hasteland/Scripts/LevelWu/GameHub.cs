@@ -10,4 +10,8 @@ public static class GameHub
 
     public static LevelController LevelController => ObjRefUtility.FindReferenceIfNull(ref levelController);
 
+    private static AmmoManager ammoManager;
+
+    public static AmmoManager AmmoManager => ObjRefUtility.FindReferenceIfNull(ref ammoManager);
+
 }

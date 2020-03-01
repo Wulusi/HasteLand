@@ -15,7 +15,11 @@ public class EnemyClickableDamage : MonoBehaviour
 
     private void OnMouseUp()
     {
-        health.TakeDamage(damageAmt);
+        if (GameHub.AmmoManager.canFire)
+        {
+            health.TakeDamage(damageAmt);
+            GameHub.AmmoManager.currentAmmo--;
+        }
     }
 
     #region AutoSerialization
