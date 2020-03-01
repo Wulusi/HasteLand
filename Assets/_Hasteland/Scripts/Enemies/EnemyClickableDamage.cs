@@ -29,10 +29,10 @@ public class EnemyClickableDamage : MonoBehaviour
 
     }
 
-    //AutoSerialization
+    #region AutoSerialization
 #if UNITY_EDITOR
 
-    void GetRef()
+    private void GetRef()
     {
         if (!Application.isEditor)
         {
@@ -44,5 +44,11 @@ public class EnemyClickableDamage : MonoBehaviour
         }
     }
 
+    protected virtual void OnValidate()
+    {
+        GetRef();
+    }
+
 #endif
+    #endregion
 }
