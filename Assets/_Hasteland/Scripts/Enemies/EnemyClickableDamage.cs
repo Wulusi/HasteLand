@@ -2,31 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enables enemies to take damage if clicked
+/// </summary>
 public class EnemyClickableDamage : MonoBehaviour
 {
     [SerializeField]
     private Health health;
     // Start is called before the first frame update
-    void Start()
+
+    public float damageAmt;
+
+    private void OnMouseUp()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnMouseDown()
-    {
-
-    }
-
-
-    public void takeItems()
-    {
-
+        health.TakeDamage(damageAmt);
     }
 
     #region AutoSerialization
