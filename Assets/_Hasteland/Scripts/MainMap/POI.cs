@@ -93,7 +93,7 @@ public class POI : MonoBehaviour
             {
                 _title = string.Format("{0}{1}", _title, title[_index]);
                 _index++;
-                Debug.Log(_title);
+                //Debug.Log(_title);
                 titleText.text = _title;
             }
             else
