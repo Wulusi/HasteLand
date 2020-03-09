@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: POI
+  m_Shader: {fileID: -6465566751694194690, guid: 3afe4f2a5df80de469a9cb54dbc2970e,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Boolean_F0D7BE90: 1
+    - Vector1_CCF44140: 10
+    - _active: 1
+    - _lepSpeed: 10
+    m_Colors:
+    - Color_7FD5F075: {r: 1, g: 0.95312494, b: 0, a: 0}
+    - Color_AED04CCB: {r: 1, g: 0, b: 0.5, a: 1}
+    - Color_D819CF76: {r: 0.082764864, g: 1, b: 0, a: 0}
+    - _colour1: {r: 0, g: 0.3582489, b: 1, a: 0}
+    - _colour2: {r: 0.5, g: 0, b: 0.4629488, a: 0}
+    - _inactiveColour: {r: 0.3333333, g: 0.3882353, b: 0.3373763, a: 1}
