@@ -5,17 +5,28 @@ using UnityEngine;
 [System.Serializable]
 public class BulletEvent : UnityEngine.Events.UnityEvent { }
 
-public class BulletsBehaviour : MonoBehaviour
+public class BulletsBehaviour : MonoBehaviour, IPausable
 {
     [Header("Bullet Physics")]
     public Vector3 m_velocity;
     public float m_gravity;
+    public bool m_armorPiercing;
     public float m_collisionRadius;
     public LayerMask m_collisionDetectionMask;
+    public LayerMask m_boundsLayer;
+    public BulletEvent m_bulletSpawnedEvent;
     public BulletEvent m_bulletHitEvent;
 
-    private ObjectPooler m_pooler;
+    [HideInInspector]
+    public ObjectPooler m_pooler;
+    [HideInInspector]
     public float m_bulletDamage;
+
+    
+    [Header("Visuals")]
+    public bool m_rotateWithVelocity;
+    public Transform m_visualsTransform;
+
     [Header("Debugging")]
     public bool m_debugGizmos;
     public Color m_gizmosColor1, m_gizmosColor2;
@@ -24,15 +35,39 @@ public class BulletsBehaviour : MonoBehaviour
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
+        AddMeToPauseManager(PauseManager.Instance);
     }
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
+        if (AmIPaused()) return;
         m_velocity = new Vector3(m_velocity.x, m_velocity.y - (Mathf.Abs(m_gravity) / 50), m_velocity.z);
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, m_collisionRadius, m_velocity.normalized, out hit, m_velocity.magnitude * Time.fixedDeltaTime, m_collisionDetectionMask))
         {
-            transform.position += m_velocity.normalized * hit.distance;
-            HitObject(hit.transform.gameObject);
+            Vector3 hitPos = transform.position + m_velocity.normalized * hit.distance;
+
+            bool destroyObject = true;
+
+
+            if (m_armorPiercing)
+            {
+                if (Physics.SphereCast(new Ray(transform.position, m_velocity.normalized), m_collisionRadius, m_velocity.magnitude * Time.fixedDeltaTime, m_boundsLayer))
+                {
+                    transform.position = hitPos;
+                }
+                else
+                {
+                    transform.position += m_velocity * Time.fixedDeltaTime;
+                    destroyObject = false;
+                }
+            }
+            else
+            {
+                transform.position = hitPos;
+            }
+
+
+            HitObject(hit.transform.gameObject, destroyObject);
 
         }
         else
@@ -41,23 +76,40 @@ public class BulletsBehaviour : MonoBehaviour
         }
     }
 
-    private void HitObject(GameObject p_hitObject)
+    private void Update()
     {
-        m_bulletHitEvent.Invoke();
+        if (m_rotateWithVelocity)
+        {
+            m_visualsTransform.LookAt(transform.position + m_velocity);
+        }
+    }
+    public void HitObject(GameObject p_hitObject, bool p_objectPool)
+    {
         Health hitHealth = p_hitObject.GetComponent<Health>();
         if (hitHealth != null)
         {
             hitHealth.TakeDamage(m_bulletDamage);
         }
-        m_pooler.ReturnToPool(this.gameObject);
+        if (p_objectPool)
+        {
+            DestroyBullet();
+        }
     }
+    public void DestroyBullet()
+    {
+        m_bulletHitEvent.Invoke();
+        m_pooler.ReturnToPool(this.gameObject);
 
-    public void SetVelocity(Vector3 p_newVelocity)
+    }
+    public virtual void SetVariables(Vector3 p_newVelocity, float p_damage, Transform p_target = null)
     {
         m_velocity = p_newVelocity;
+        m_bulletDamage = p_damage;
+        m_bulletSpawnedEvent.Invoke();
+
     }
 
-    private void OnDrawGizmos()
+    public virtual void OnDrawGizmos()
     {
         if (!m_debugGizmos) return;
         Gizmos.color = m_gizmosColor1;
@@ -67,4 +119,21 @@ public class BulletsBehaviour : MonoBehaviour
     }
 
 
+    #region Pausing
+    private bool m_pausing;
+    public void SetPauseState(bool p_paused)
+    {
+        m_pausing = p_paused;
+    }
+
+    public bool AmIPaused()
+    {
+        return m_pausing;
+    }
+
+    public void AddMeToPauseManager(PauseManager p_pauseManager)
+    {
+        p_pauseManager.AddNewObject(this);
+    }
+    #endregion
 }

@@ -16,16 +16,16 @@ TagManager:
   - 
   - PostProcessing
   - Player
-  - Enemy
+  - 
   - Bullets
+  - GroundEnemy
+  - AirEnemy
   - 
+  - Terrain
+  - TerrainManager
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BuildingSpots
+  - TurretSpot
   - 
   - 
   - 
