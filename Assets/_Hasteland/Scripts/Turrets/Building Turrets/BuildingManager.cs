@@ -21,7 +21,7 @@ public class BuildingManager : MonoBehaviour, IPausable
 
     public BuildingEvents m_events;
 
-    
+
 
 
     [System.Serializable]
@@ -54,7 +54,7 @@ public class BuildingManager : MonoBehaviour, IPausable
     [System.Serializable]
     public struct TurretUpgradeVariables
     {
-        [Tooltip ("The button that upgrades the turret")]
+        [Tooltip("The button that upgrades the turret")]
         public UnityEngine.UI.Button m_btn_upgradeButton;
         [Tooltip("The button that pops up when the turret can no longer be upgraded")]
         public UnityEngine.UI.Button m_btn_turretFullyUpgraded;
@@ -127,27 +127,40 @@ public class BuildingManager : MonoBehaviour, IPausable
             }
             else
             {
-                if (!m_buildingEventsSystem.IsPointerOverGameObject())
+                RaycastHit hit;
+                if (Physics.Raycast(m_mainCamera.ScreenPointToRay(Input.mousePosition), out hit, 100f, m_buildingLayer))
                 {
-                    m_enablePlayerBuilding = false;
-                    if (m_menuTypeOpened == 0)
+                    if(hit.transform.gameObject != m_currentBuildSpot.gameObject)
                     {
-                        m_events.m_closeBuildMenuEvent.Invoke();
-                        if (m_checkBuildingCosts != null)
-                        {
-                            StopCoroutine(m_checkBuildingCosts);
-                        }
+                        CloseMenu();
                     }
-                    else if (m_menuTypeOpened == 1)
-                    {
-                        TurretUpgradeMenuButtonPressed(3);
-                    }
+                }
+                else if (!m_buildingEventsSystem.IsPointerOverGameObject())
+                {
 
+                    CloseMenu();
 
                 }
             }
         }
 
+    }
+
+    private void CloseMenu()
+    {
+        m_enablePlayerBuilding = false;
+        if (m_menuTypeOpened == 0)
+        {
+            m_events.m_closeBuildMenuEvent.Invoke();
+            if (m_checkBuildingCosts != null)
+            {
+                StopCoroutine(m_checkBuildingCosts);
+            }
+        }
+        else if (m_menuTypeOpened == 1)
+        {
+            TurretUpgradeMenuButtonPressed(3);
+        }
     }
 
     public void ChooseNewTurretType(int p_turretType)
