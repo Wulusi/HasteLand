@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class BuildSpot : MonoBehaviour
 {
@@ -15,10 +16,19 @@ public class BuildSpot : MonoBehaviour
     {
         m_pooler = ObjectPooler.instance;
     }
+
     public void SpawnTurret(int p_turretType)
     {
         m_currentTurret = m_pooler.NewObject(m_turretPrefabs[p_turretType], m_turretLocation.position, Quaternion.identity);
         m_currentTurret.transform.parent = transform.parent;
+
+        //Analytics for which type of turret is built
+        Analytics.CustomEvent("turret type", new Dictionary<string, object>
+        {
+            {"turrent type built", m_currentTurret.name },
+        }
+        );
+
         m_currentTurret.GetComponent<TurretUpgrades>().AssignBuildSpot(this);
         this.gameObject.SetActive(false);
     }

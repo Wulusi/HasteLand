@@ -76,7 +76,6 @@ public class EnemyHealthBarUI : MonoBehaviour
 
     private void UpdateUI()
     {
-        
         var currentHealth = health.m_currentHealth / health.m_maxHealth;
 
         if (healthBar.fillAmount != currentHealth)

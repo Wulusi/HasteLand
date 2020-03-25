@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Analytics;
 
 [System.Serializable]
 public class HealthActivationEvent : UnityEvent { }
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, AnalyticsTracker<bool>
 {
     #region Generic Health Values
     public float m_maxHealth;
@@ -33,6 +34,12 @@ public class Health : MonoBehaviour
 
     private ObjectPooler m_pooler;
 
+    #region Analytics Tracking
+
+    public bool m_isTrackingHealth;
+    private float m_totalDamage = 0;
+
+    #endregion
 
     private void Start()
     {
@@ -87,12 +94,13 @@ public class Health : MonoBehaviour
                 else
                 {
                     m_isDead = true;
+                    TrackAnalytics(m_isTrackingHealth);
                     m_onDied.Invoke();
                 }
             }
-
         }
 
+        m_totalDamage += m_takenDamage;
     }
 
     IEnumerator RegenShield()
@@ -110,9 +118,27 @@ public class Health : MonoBehaviour
         m_currentShieldStrength = m_maxShieldStrength;
         m_shieldRegenerationCoroutine = null;
     }
-    
+
     public void ReturnToPool()
     {
         m_pooler.ReturnToPool(this.gameObject);
+    }
+
+    public void TrackAnalytics(bool isTracking)
+    {
+        if (isTracking)
+        {
+            Debug.Log("Tracking Total Damage Taken");
+
+            //Analytics for reporting how much damage did the player take
+            Analytics.CustomEvent("turret_upgraded", new Dictionary<string, object>
+        {
+            {"player_damage_taken", m_totalDamage},
+        });
+        }
+        else
+        {
+            Debug.Log("Not Tracking Analytics");
+        }
     }
 }

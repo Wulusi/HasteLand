@@ -6,8 +6,6 @@ using UnityEngine;
 public class LevelProgressEvents : UnityEngine.Events.UnityEvent { }
 public class LevelProgress : MonoBehaviour, IPausable
 {
-
-
     public float m_levelTime;
     public float m_startLevelTime;
 

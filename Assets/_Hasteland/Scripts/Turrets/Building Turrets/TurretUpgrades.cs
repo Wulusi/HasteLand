@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 
 public class TurretUpgrades : MonoBehaviour
@@ -14,7 +15,7 @@ public class TurretUpgrades : MonoBehaviour
     //The spot that this turret was built upon.
     private BuildSpot m_occupiedSpot;
 
-    
+
     [System.Serializable]
     public struct UpgradeLevels
     {
@@ -44,6 +45,13 @@ public class TurretUpgrades : MonoBehaviour
         m_turretUpgradeLevels[m_currentUpgradeLevel].m_newTurretObject.SetActive(false);
         m_currentUpgradeLevel++;
         m_turretUpgradeLevels[m_currentUpgradeLevel].m_newTurretObject.SetActive(true);
+
+        //Analytics for reporting which turret is being upgraded to which level
+        Analytics.CustomEvent("turret_upgraded", new Dictionary<string, object>
+        {
+            {"turret_type", this.gameObject.name},
+            {"turret_upgrade_level",  m_currentUpgradeLevel },
+        });
     }
 
     public void EnableUpgrading()
@@ -62,7 +70,7 @@ public class TurretUpgrades : MonoBehaviour
 
     public float GetCurrentUpgradeCost()
     {
-        if (m_currentUpgradeLevel +1 >= m_turretUpgradeLevels.Count)
+        if (m_currentUpgradeLevel + 1 >= m_turretUpgradeLevels.Count)
         {
             return Mathf.Infinity;
         }
