@@ -48,6 +48,7 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
 
     private void OnEnable()
     {
+        
         CreateRandomizedTerrain();
     }
 
@@ -55,12 +56,18 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
     {
         if(m_pooler == null)
         {
+            if(ObjectPooler.instance == null)
+            {
+                return;
+            }
             m_pooler = ObjectPooler.instance;
+
         }
 
         int randomAmount = Random.Range(0, m_maxItems);
         List<Transform> possibleSpawns = new List<Transform>(m_objectSpawnPositions);
 
+        
         for (int i = 0; i < randomAmount; i++)
         {
             int randomSpawn = Random.Range(0, possibleSpawns.Count);
@@ -68,7 +75,7 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
             GameObject newPiece = m_pooler.NewObject(m_spawnablePrefabs[Random.Range(0, m_spawnablePrefabs.Count)], possibleSpawns[randomSpawn].position, Quaternion.Euler(0, Random.Range(0, 360), 0));
             m_environmentObjects.Add(newPiece);
             newPiece.transform.parent = transform;
-            m_objectSpawnPositions.RemoveAt(randomSpawn);
+            possibleSpawns.RemoveAt(randomSpawn);
         }
     }
     public void OnDisable()

@@ -56,7 +56,7 @@ public class LevelController : MonoBehaviour
 
         if (Mathf.Repeat(totalTime, duration) == 0)
         {
-            Debug.Log("Before Spawn Count" + terrainCount);
+
             spawnMapSections();
         }
     }

@@ -84,7 +84,7 @@ PrefabInstance:
     - target: {fileID: 8545585031997005763, guid: f6e5acfdb35206241a18955a9b5851a7,
         type: 3}
       propertyPath: m_Name
-      value: EnvironmentPiece_Dust_4
+      value: EnvironmentPiece_Dust_4 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3139915011606712289, guid: f6e5acfdb35206241a18955a9b5851a7,
         type: 3}
@@ -140,26 +140,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139434833781699927, guid: f6e5acfdb35206241a18955a9b5851a7,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139434833781699927, guid: f6e5acfdb35206241a18955a9b5851a7,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139434833781699927, guid: f6e5acfdb35206241a18955a9b5851a7,
-        type: 3}
-      propertyPath: m_Height
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139434833781699927, guid: f6e5acfdb35206241a18955a9b5851a7,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e5acfdb35206241a18955a9b5851a7, type: 3}
