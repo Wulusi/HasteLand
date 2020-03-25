@@ -5,6 +5,7 @@ using UnityEngine.Analytics;
 
 public class TrackEventsContinuous : MonoBehaviour
 {
+
     public int 
         numOfTimesPlayed, 
         numOfBulletsFired, 
@@ -18,11 +19,13 @@ public class TrackEventsContinuous : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        numOfTimesPlayed = 1;
+        RestartGame();
+        
     }
 
     public void AddEnemiesKilled()
     {
+        print("Enemy Killed");
         numOfEnemiesKilled++;
     }
 
@@ -39,6 +42,7 @@ public class TrackEventsContinuous : MonoBehaviour
 
     public void ResetStats()
     {
+        print("Reset");
         numOfEnemiesKilled = 0;
         numOfTotalUpgrades = 0;
         numOfBulletsFired = 0;
