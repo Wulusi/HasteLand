@@ -391,7 +391,7 @@ Animator:
   m_GameObject: {fileID: 5647566743186829785}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c854fe1c4ea08b44d9cdf29871b219f3, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -690,6 +690,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7342367360735096348}
   - component: {fileID: 1311139750}
+  - component: {fileID: 2954241053614255239}
+  - component: {fileID: 1797559237340322963}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -731,6 +733,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &2954241053614255239
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342367360735096349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 37.546265, y: 5, z: 5}
+  m_Center: {x: -8.348987, y: 0, z: 0}
+--- !u!114 &1797559237340322963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342367360735096349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb8c6d5f4d3acc48b886467ba05b4a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxHealth: 1500
+  m_currentHealth: 0
+  m_isDead: 0
+  m_onDied:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: HealthActivationEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_useShields: 0
+  m_shieldDamageMultiplier: 0.75
+  m_maxShieldStrength: 0
+  m_shieldRegeneration: 1
+  m_shieldRegenDelay: 0
+  m_shieldRegenTimeToFull: 0
 --- !u!1 &7342367360869720730
 GameObject:
   m_ObjectHideFlags: 0
