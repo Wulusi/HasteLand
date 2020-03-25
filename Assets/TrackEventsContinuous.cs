@@ -14,6 +14,16 @@ public class TrackEventsContinuous : MonoBehaviour
         numOfTimesPlayed = 1;
     }
 
+    public void AddEnemiesKilled()
+    {
+        numOfEnemiesKilled++;
+    }
+
+    public void AddBulletsFired()
+    {
+        numOfBulletsFired++;
+    }
+
     public void RestartGame()
     {
         ReportPlaySessionData();

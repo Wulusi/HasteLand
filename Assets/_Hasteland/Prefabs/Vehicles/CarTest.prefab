@@ -210,6 +210,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8780506646159562819, guid: fe98cb87771f6254c81fb6e551ffe16c,
+          type: 3}
+        m_MethodName: AddEnemiesKilled
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: HealthActivationEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_useShields: 0
@@ -218,6 +230,8 @@ MonoBehaviour:
   m_shieldRegeneration: 1
   m_shieldRegenDelay: 0
   m_shieldRegenTimeToFull: 0
+  m_isTrackingHealth: 0
+  m_totalDamage: 0
 --- !u!114 &1244920872408115680
 MonoBehaviour:
   m_ObjectHideFlags: 0

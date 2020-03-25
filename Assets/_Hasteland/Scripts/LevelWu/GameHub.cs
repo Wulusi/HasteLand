@@ -14,4 +14,8 @@ public static class GameHub
 
     public static AmmoManager AmmoManager => ObjRefUtility.FindReferenceIfNull(ref ammoManager);
 
+    private static TrackEventsContinuous trackEventsContinuous;
+
+    public static TrackEventsContinuous TrackEventsContinuous => ObjRefUtility.FindReferenceIfNull(ref trackEventsContinuous);
+
 }
