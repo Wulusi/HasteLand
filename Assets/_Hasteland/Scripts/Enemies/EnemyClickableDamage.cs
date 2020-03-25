@@ -19,6 +19,7 @@ public class EnemyClickableDamage : MonoBehaviour
         {
             health.TakeDamage(damageAmt);
             GameHub.AmmoManager.currentAmmo--;
+            GameHub.TrackEventsContinuous.numOfBulletsFired++;
         }
     }
 

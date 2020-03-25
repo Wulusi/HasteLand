@@ -43,6 +43,4 @@ public class BuildSpot : MonoBehaviour
     {
         this.gameObject.SetActive(true);
     }
-
-
 }

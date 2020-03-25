@@ -5,7 +5,14 @@ using UnityEngine.Analytics;
 
 public class TrackEventsContinuous : MonoBehaviour
 {
-    public int numOfTimesPlayed, numOfBulletsFired, numOfEnemiesKilled, numOfTotalUpgrades;
+    public int 
+        numOfTimesPlayed, 
+        numOfBulletsFired, 
+        numOfEnemiesKilled, 
+        numOfTotalUpgrades,
+        totalAmmoObtained,
+        totalCurrency,
+        totalDamageToTruck;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +23,6 @@ public class TrackEventsContinuous : MonoBehaviour
 
     public void RestartGame()
     {
-        ReportPlaySessionData();
         AddSession();
         ResetStats();
     }
@@ -30,6 +36,10 @@ public class TrackEventsContinuous : MonoBehaviour
     {
         numOfEnemiesKilled = 0;
         numOfTotalUpgrades = 0;
+        numOfBulletsFired = 0;
+        totalAmmoObtained = 0;
+        totalCurrency = 0;
+        totalDamageToTruck = 0;
     }
 
     public void ReportPlaySessionData()
@@ -41,8 +51,11 @@ public class TrackEventsContinuous : MonoBehaviour
         {
             {"play_session_number", numOfTimesPlayed},
             {"number_of_enemies_killed", numOfEnemiesKilled},
-            {"number_of_bullets_fired", numOfBulletsFired},
             {"number_of_total_upgrades", numOfTotalUpgrades},
+            {"number_of_bullets_fired", numOfBulletsFired},
+            {"total_ammo_obtained", totalAmmoObtained},
+            {"total_currency_obtained", totalCurrency},
+            {"total_Damage_To_Truck", totalDamageToTruck}
         });
     }
 }

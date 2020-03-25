@@ -52,6 +52,7 @@ public class TurretUpgrades : MonoBehaviour
             {"turret_type", this.gameObject.name},
             {"turret_upgrade_level",  m_currentUpgradeLevel },
         });
+        GameHub.TrackEventsContinuous.numOfTotalUpgrades++;
     }
 
     public void EnableUpgrading()
