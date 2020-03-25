@@ -22,6 +22,8 @@ public class LevelController : MonoBehaviour
     [Range(0,20)]
     public int TerrainSpd;
 
+    public bool m_levelFailed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +38,15 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_levelFailed) return;
         SpawnTerrain();
         UpdateSpeed();
     }
 
-    private void FixedUpdate()
+    
+    public void PlayerDied()
     {
+        m_levelFailed = true;
     }
 
     private void SpawnTerrain()

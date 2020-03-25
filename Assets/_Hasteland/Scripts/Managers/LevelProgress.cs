@@ -29,6 +29,8 @@ public class LevelProgress : MonoBehaviour, IPausable
     public Transform m_endPos, m_progressPos;
     public UnityEngine.UI.Image m_progressBar;
 
+    private bool m_died;
+
     private void Start()
     {
         AddMeToPauseManager(PauseManager.Instance);
@@ -44,6 +46,7 @@ public class LevelProgress : MonoBehaviour, IPausable
     {
         StopAllCoroutines();
         m_levelEvents.m_levelFailed.Invoke();
+        m_died = true;
     }
     public void LevelCompleted()
     {
@@ -54,7 +57,7 @@ public class LevelProgress : MonoBehaviour, IPausable
         float timer = 0;
         while (timer < m_levelTime)
         {
-            if (!m_isPaused)
+            if (!m_isPaused && !m_died)
             {
                 timer += Time.deltaTime;
             }
@@ -104,6 +107,7 @@ public class LevelProgress : MonoBehaviour, IPausable
         m_progressPos.transform.position = Vector3.Lerp(m_beginPos.position, m_endPos.position, p_progress);
         m_progressBar.fillAmount = p_progress;
     }
+
 
 
     #region Pause

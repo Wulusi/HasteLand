@@ -21,13 +21,13 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
     {
         while (true)
         {
-
             yield return null;
         }
     }
 
     public void Update()
     {
+        if (GameHub.LevelController.m_levelFailed) return;
         transform.localPosition += new Vector3(-1, 0, 0) * terrainSpd * 1 / 60f; //Time.deltatime messes this up majorly
     }
 

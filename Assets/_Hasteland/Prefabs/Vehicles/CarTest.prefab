@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 2
   m_health: {fileID: 1244920872408115681}
+  m_applyDamage: 100
 --- !u!114 &3140124967771726180
 MonoBehaviour:
   m_ObjectHideFlags: 0
