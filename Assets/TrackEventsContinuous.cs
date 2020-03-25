@@ -6,10 +6,10 @@ using UnityEngine.Analytics;
 public class TrackEventsContinuous : MonoBehaviour
 {
 
-    public int 
-        numOfTimesPlayed, 
-        numOfBulletsFired, 
-        numOfEnemiesKilled, 
+    public int
+        numOfTimesPlayed,
+        numOfBulletsFired,
+        numOfEnemiesKilled,
         numOfTotalUpgrades,
         totalAmmoObtained,
         totalCurrency,
@@ -18,9 +18,18 @@ public class TrackEventsContinuous : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CheckSingeleton();
         DontDestroyOnLoad(this.gameObject);
         RestartGame();
-        
+    }
+
+    private void CheckSingeleton()
+    {
+        if (FindObjectsOfType<TrackEventsContinuous>().Length > 1)
+        {
+            print("destroying Tracker copy");
+            Destroy(this.gameObject);
+        }
     }
 
     public void AddEnemiesKilled()
