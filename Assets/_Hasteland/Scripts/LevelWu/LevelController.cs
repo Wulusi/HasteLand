@@ -101,6 +101,5 @@ public class LevelController : MonoBehaviour
             poolManager.SpawnFromPool(spawnReference[randomNumbers[0]].name, spawnPos.transform.position, Quaternion.identity);
             currentTerrain.GetComponent<TerrainMover>().terrainSpd = TerrainSpd;
 
-        Debug.Log("Spawned Terrain " + terrainCount + " " + currentTerrain);
     }
 }
