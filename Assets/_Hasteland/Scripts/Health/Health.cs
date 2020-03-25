@@ -37,7 +37,7 @@ public class Health : MonoBehaviour, AnalyticsTracker<bool>
     #region Analytics Tracking
 
     public bool m_isTrackingHealth;
-    private float m_totalDamage = 0;
+    public float m_totalDamage = 0;
 
     #endregion
 
@@ -131,7 +131,7 @@ public class Health : MonoBehaviour, AnalyticsTracker<bool>
             Debug.Log("Tracking Total Damage Taken");
 
             //Analytics for reporting how much damage did the player take
-            Analytics.CustomEvent("turret_upgraded", new Dictionary<string, object>
+            Analytics.CustomEvent("TotalDamageTaken", new Dictionary<string, object>
         {
             {"player_damage_taken", m_totalDamage},
         });

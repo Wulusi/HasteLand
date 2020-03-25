@@ -16,7 +16,6 @@ public class LevelProgress : MonoBehaviour, IPausable
         public LevelProgressEvents m_levelStarted, m_levelCompleted, m_levelFailed;
     }
 
-
     [Header("Countdown Canvas Elements")]
     public CanvasGroup m_countdownCanvasGroup;
     public UnityEngine.UI.Text m_countdownText;
@@ -105,8 +104,6 @@ public class LevelProgress : MonoBehaviour, IPausable
         m_progressPos.transform.position = Vector3.Lerp(m_beginPos.position, m_endPos.position, p_progress);
         m_progressBar.fillAmount = p_progress;
     }
-
-
 
     #region Pause
     private bool m_isPaused;

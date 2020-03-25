@@ -726,6 +726,7 @@ GameObject:
   - component: {fileID: 1311139750}
   - component: {fileID: 2954241053614255239}
   - component: {fileID: 1797559237340322963}
+  - component: {fileID: 8229244040702495447}
   m_Layer: 21
   m_Name: Truck
   m_TagString: Untagged
@@ -819,6 +820,20 @@ MonoBehaviour:
   m_shieldRegeneration: 1
   m_shieldRegenDelay: 0
   m_shieldRegenTimeToFull: 0
+  m_isTrackingHealth: 0
+  m_totalDamage: 0
+--- !u!114 &8229244040702495447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342367360735096349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375c5dde47956e947bf99922bb40ea6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7342367360869720730
 GameObject:
   m_ObjectHideFlags: 0
