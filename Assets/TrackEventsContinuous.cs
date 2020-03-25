@@ -21,6 +21,11 @@ public class TrackEventsContinuous : MonoBehaviour
         numOfTimesPlayed = 1;
     }
 
+    public void AddEnemiesKilled()
+    {
+        numOfEnemiesKilled++;
+    }
+
     public void RestartGame()
     {
         AddSession();

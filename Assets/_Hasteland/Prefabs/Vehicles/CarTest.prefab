@@ -231,7 +231,6 @@ MonoBehaviour:
   m_shieldRegenDelay: 0
   m_shieldRegenTimeToFull: 0
   m_isTrackingHealth: 0
-  m_totalDamage: 0
 --- !u!114 &1244920872408115680
 MonoBehaviour:
   m_ObjectHideFlags: 0

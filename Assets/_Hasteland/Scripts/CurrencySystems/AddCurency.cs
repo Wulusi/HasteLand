@@ -23,5 +23,6 @@ public class AddCurency : MonoBehaviour
     public void AddAmmo()
     {
         GameHub.AmmoManager.GiveAmmo();
+        GameHub.TrackEventsContinuous.totalAmmoObtained += (int)GameHub.AmmoManager.ammoAdd;
     }
 }
