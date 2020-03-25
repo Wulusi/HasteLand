@@ -25,7 +25,6 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
         }
     }
 
-    
     IEnumerator moveTiles(int terrainSpd)
     {
         while (true)
@@ -71,6 +70,7 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
             m_objectSpawnPositions.RemoveAt(randomSpawn);
         }
     }
+
     public void OnDisable()
     {
 

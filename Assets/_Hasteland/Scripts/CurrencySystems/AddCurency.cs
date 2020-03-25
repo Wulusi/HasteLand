@@ -18,6 +18,7 @@ public class AddCurency : MonoBehaviour
     public void GivePlayerCurrency()
     {
         m_currencyManager.GiveCurrency(m_amountToGive);
+        GameHub.TrackEventsContinuous.totalCurrency += (int)m_amountToGive;
     }
     public void AddAmmo()
     {
