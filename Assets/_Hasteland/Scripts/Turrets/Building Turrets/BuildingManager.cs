@@ -125,28 +125,11 @@ public class BuildingManager : MonoBehaviour, IPausable
                 }
                 #endregion
             }
-            else
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(m_mainCamera.ScreenPointToRay(Input.mousePosition), out hit, 100f, m_buildingLayer))
-                {
-                    if(hit.transform.gameObject != m_currentBuildSpot.gameObject)
-                    {
-                        CloseMenu();
-                    }
-                }
-                else if (!m_buildingEventsSystem.IsPointerOverGameObject())
-                {
-
-                    CloseMenu();
-
-                }
-            }
         }
 
     }
 
-    private void CloseMenu()
+    public void CloseMenu()
     {
         m_enablePlayerBuilding = false;
         if (m_menuTypeOpened == 0)

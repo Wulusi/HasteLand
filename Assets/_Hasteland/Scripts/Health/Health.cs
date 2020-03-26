@@ -31,6 +31,8 @@ public class Health : MonoBehaviour
     private WaitForSeconds m_shieldRegenDelayTimer;
     #endregion
 
+    private bool m_canLoseHealth = true;
+
     private ObjectPooler m_pooler;
 
     #region Analytics Tracking
@@ -56,6 +58,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float m_takenDamage)
     {
+        if (!m_canLoseHealth) return;
         if (!m_isDead)
         {
             StopAllCoroutines();
@@ -103,6 +106,10 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void RetoggleHealth()
+    {
+        m_canLoseHealth = false;
+    }
     IEnumerator RegenShield()
     {
         yield return m_shieldRegenDelayTimer;
