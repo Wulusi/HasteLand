@@ -5,7 +5,6 @@ using UnityEngine.Analytics;
 
 public class TrackEventsContinuous : MonoBehaviour
 {
-
     public int
         numOfTimesPlayed,
         numOfBulletsFired,
@@ -14,6 +13,10 @@ public class TrackEventsContinuous : MonoBehaviour
         totalAmmoObtained,
         totalCurrency,
         totalDamageToTruck;
+
+    public float sessionTime;
+
+    public bool timerActive;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,14 @@ public class TrackEventsContinuous : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (timerActive)
+        {
+            sessionTime += Time.deltaTime;
+        }
+    }
+
     public void AddEnemiesKilled()
     {
         print("Enemy Killed");
@@ -42,6 +53,7 @@ public class TrackEventsContinuous : MonoBehaviour
     {
         AddSession();
         ResetStats();
+        timerActive = true;
     }
 
     public void AddSession()
@@ -58,6 +70,7 @@ public class TrackEventsContinuous : MonoBehaviour
         totalAmmoObtained = 0;
         totalCurrency = 0;
         totalDamageToTruck = 0;
+        sessionTime = 0;
     }
 
     public void ReportPlaySessionData()
@@ -73,7 +86,8 @@ public class TrackEventsContinuous : MonoBehaviour
             {"number_of_bullets_fired", numOfBulletsFired},
             {"total_ammo_obtained", totalAmmoObtained},
             {"total_currency_obtained", totalCurrency},
-            {"total_Damage_To_Truck", totalDamageToTruck}
+            {"total_Damage_To_Truck", totalDamageToTruck},
+            {"total_game_duration", sessionTime}
         });
 
         Debug.Log("Data reported");
