@@ -75,5 +75,7 @@ public class TrackEventsContinuous : MonoBehaviour
             {"total_currency_obtained", totalCurrency},
             {"total_Damage_To_Truck", totalDamageToTruck}
         });
+
+        Debug.Log("Data reported");
     }
 }

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -120,6 +120,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &74909513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 683922297, guid: e27ed0c6a33b28248a5e087d4316adf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 882976839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &74909516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74909513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3cb421ee31da54c9d0587e47587d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &126367200
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,10 +697,10 @@ PrefabInstance:
     - target: {fileID: 683922296, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_levelEvents.m_levelCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 918267445}
+      objectReference: {fileID: 74909516}
     - target: {fileID: 683922296, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_levelEvents.m_levelCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ReportPlaySessionData
+      value: ReportData
       objectReference: {fileID: 0}
     - target: {fileID: 683922296, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_levelEvents.m_levelCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -703,10 +721,10 @@ PrefabInstance:
     - target: {fileID: 683922296, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_levelEvents.m_levelFailed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 918267445}
+      objectReference: {fileID: 74909516}
     - target: {fileID: 683922296, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_levelEvents.m_levelFailed.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ReportPlaySessionData
+      value: ReportData
       objectReference: {fileID: 0}
     - target: {fileID: 683922296, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_levelEvents.m_levelFailed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -776,6 +794,10 @@ PrefabInstance:
       propertyPath: spawnReference.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 517044517, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
+      propertyPath: TerrainSpd
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1587735257, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: pools.Array.size
       value: 1
@@ -828,6 +850,51 @@ PrefabInstance:
     - target: {fileID: 179569428, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286133393544230613, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4906073748413019454, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654161780018684960, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208096624281115510, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850813722388520989, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850813722792244392, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850813723957818833, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850813724321278607, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877296012726842148, guid: e27ed0c6a33b28248a5e087d4316adf0,
+        type: 3}
+      propertyPath: terrainSpd
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
@@ -978,18 +1045,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe98cb87771f6254c81fb6e551ffe16c, type: 3}
---- !u!114 &918267445 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8780506646159562819, guid: fe98cb87771f6254c81fb6e551ffe16c,
-    type: 3}
-  m_PrefabInstance: {fileID: 918267444}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4212a25715eab549b813fea2995610f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &951022923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1289,7 +1344,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 882976839}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 74909513}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 005e0e0228d0d8847a9e3dd120695a70, type: 3}

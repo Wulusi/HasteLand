@@ -19,7 +19,7 @@ public class LevelController : MonoBehaviour
 
     private int randomInt, lastInt, terrainCount;
 
-    [Range(0,20)]
+    [Range(0, 40)]
     public int TerrainSpd;
 
     public bool m_levelFailed;
@@ -27,11 +27,11 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        QualitySettings.vSyncCount = 1;
         poolManager = PoolManager.Instance;
         terrainCount = 0;
         //Assign 0 by default
         lastInt = 0;
-
         //StartCoroutine(SpawnIntervals());
     }
 
@@ -43,7 +43,7 @@ public class LevelController : MonoBehaviour
         UpdateSpeed();
     }
 
-    
+
     public void PlayerDied()
     {
         m_levelFailed = true;
@@ -52,7 +52,7 @@ public class LevelController : MonoBehaviour
     private void SpawnTerrain()
     {
         float totalTime = Time.frameCount;
-        float duration = 1200f/ TerrainSpd;
+        float duration = 1200f / TerrainSpd;
 
         if (Mathf.Repeat(totalTime, duration) == 0)
         {
@@ -78,7 +78,7 @@ public class LevelController : MonoBehaviour
     //        while (Mathf.Repeat(totalTime, 4) == 0)
     //        {
     //            Debug.Log("Spawning Tile " + totalTime);
-         
+
     //            //Not sure why this is giving null ref
     //            spawnMapSections();
     //            yield return null;
@@ -99,7 +99,7 @@ public class LevelController : MonoBehaviour
 
         GameObject currentTerrain =
             poolManager.SpawnFromPool(spawnReference[randomNumbers[0]].name, spawnPos.transform.position, Quaternion.identity);
-            currentTerrain.GetComponent<TerrainMover>().terrainSpd = TerrainSpd;
+        currentTerrain.GetComponent<TerrainMover>().terrainSpd = TerrainSpd;
 
     }
 }

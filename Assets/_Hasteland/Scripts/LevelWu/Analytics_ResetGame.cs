@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Analytics_ResetGame : MonoBehaviour
 {
+    public void ReportData()
+    {
+        GameHub.TrackEventsContinuous.ReportPlaySessionData();
+    }
+
+
     public void ResetGame()
     {
         GameHub.TrackEventsContinuous.RestartGame();
