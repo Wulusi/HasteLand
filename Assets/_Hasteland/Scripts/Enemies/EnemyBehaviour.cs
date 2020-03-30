@@ -5,16 +5,17 @@ using UnityEngine;
 /// <summary>
 /// Test enemy movement. Should be removed when the real enemy movement is implemented
 /// </summary>
-public class TestEnemyBehaviour : MonoBehaviour, IPausable
+public class EnemyBehaviour : MonoBehaviour, IPausable
 {
     public float m_speed;
     private Transform m_targetPoint;
     public Health m_health;
 
     public float m_applyDamage;
-    
+    private EnemySpawner m_enemySpawner;
     private void Start()
     {
+        m_enemySpawner = EnemySpawner.Instance;
         AddMeToPauseManager(PauseManager.Instance);
     }
     public void ResetMe( Transform p_playerPoint)
@@ -50,5 +51,11 @@ public class TestEnemyBehaviour : MonoBehaviour, IPausable
     public void AddMeToPauseManager(PauseManager p_pauseManager)
     {
         p_pauseManager.AddNewObject(this);
+    }
+
+    
+    public void IDied()
+    {
+        m_enemySpawner.EnemyDied();
     }
 }
