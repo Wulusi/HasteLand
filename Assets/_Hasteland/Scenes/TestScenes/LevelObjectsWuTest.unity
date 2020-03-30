@@ -260,6 +260,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &137694342
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -711,6 +714,7 @@ MonoBehaviour:
   - {fileID: 6268932335769736316, guid: a045d5a0f27faf04b8d66331405e7c81, type: 3}
   currentTerrainList: []
   TerrainSpd: 40
+  m_levelFailed: 0
 --- !u!1 &520467357
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,11 +800,15 @@ MonoBehaviour:
   - {fileID: 1450724563}
   - {fileID: 1126213236}
   - {fileID: 1564511799}
+  m_enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_playerTransform: {fileID: 951022924}
   m_spawnRate: 1
-  m_enemyTypes:
-  - {fileID: 1244920872408115684, guid: 677a60634c51c96408235aef5de210c7, type: 3}
-  - {fileID: 7516946778828576800, guid: 273b4d45d17d152469886fcded14e42d, type: 3}
+  m_spawnRad: 0
+  m_groundEnemy: {fileID: 0}
+  m_airEnemy: {fileID: 0}
+  m_allWaveTypes: []
 --- !u!4 &719900867
 Transform:
   m_ObjectHideFlags: 0
@@ -950,6 +958,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &764025305
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1058,6 +1069,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &793776010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1262,6 +1276,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643727758, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3757064784016213555, guid: e27ed0c6a33b28248a5e087d4316adf0,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1269,10 +1287,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757064783178612380, guid: e27ed0c6a33b28248a5e087d4316adf0,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643727758, guid: e27ed0c6a33b28248a5e087d4316adf0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -1427,6 +1441,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1708283729297868732, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 951022925}
+    - target: {fileID: 6893362782313911881, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 2292345159752080217, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 918516841385358482, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 8841029504256753179, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 4797613198566547917, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 1261453300667777814, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 4236631970133275403, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 5531850918386940290, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
+    - target: {fileID: 7462194491454671263, guid: 322827056972c0748a810aa35d96c16f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05b4e5350ab5e634384e2dce484d3624, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 322827056972c0748a810aa35d96c16f, type: 3}
 --- !u!4 &951022924 stripped
@@ -1435,6 +1499,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 951022923}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &951022925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1797559237340322963, guid: 322827056972c0748a810aa35d96c16f,
+    type: 3}
+  m_PrefabInstance: {fileID: 951022923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb8c6d5f4d3acc48b886467ba05b4a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &953907433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1838,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &1497651837
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2179,6 +2258,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &1712820898
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2462,6 +2544,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &1911053907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2570,6 +2655,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &1988056034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2770,6 +2858,9 @@ MonoBehaviour:
   isStartingTiles: 1
   terrainSpd: 40
   isLevelComplete: 0
+  m_maxItems: 0
+  m_objectSpawnPositions: []
+  m_spawnablePrefabs: []
 --- !u!65 &2105683202
 BoxCollider:
   m_ObjectHideFlags: 0

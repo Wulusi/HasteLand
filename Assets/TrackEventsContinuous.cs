@@ -63,7 +63,6 @@ public class TrackEventsContinuous : MonoBehaviour
 
     public void ResetStats()
     {
-        print("Reset");
         numOfEnemiesKilled = 0;
         numOfTotalUpgrades = 0;
         numOfBulletsFired = 0;

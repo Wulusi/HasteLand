@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 9d3b349d35b2ee745b17a45b1c9a7a1e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21d61d7140dd80042b4f50ace0d842be, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d3b349d35b2ee745b17a45b1c9a7a1e, type: 3}
 --- !u!1001 &6143038187891265459
@@ -76,11 +81,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8545585031997005763, guid: f6e5acfdb35206241a18955a9b5851a7,
-        type: 3}
-      propertyPath: m_Name
-      value: EnvironmentPiece_Rock_3 Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 3139915011606712289, guid: f6e5acfdb35206241a18955a9b5851a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -135,6 +135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545585031997005763, guid: f6e5acfdb35206241a18955a9b5851a7,
+        type: 3}
+      propertyPath: m_Name
+      value: EnvironmentPiece_Rock_3 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e5acfdb35206241a18955a9b5851a7, type: 3}

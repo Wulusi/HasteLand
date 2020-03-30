@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Hasteland/Scenes/MenuScene.unity
+    guid: afa372baf645c4a4e8349ccb6cd23822
+  - enabled: 1
+    path: Assets/_Hasteland/Scenes/Map.unity
+    guid: c644dfb6ce513dd499c402bcab42b73b
+  - enabled: 1
     path: Assets/_Hasteland/Scenes/TestScenes/LevelObjectsBehaviour.unity
     guid: ad13557e1f9cce14591fc6c30ada788f
   m_configObjects: {}

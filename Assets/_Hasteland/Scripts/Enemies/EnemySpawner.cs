@@ -37,8 +37,10 @@ public class EnemySpawner : MonoBehaviour, IPausable
     {
         AddMeToPauseManager(PauseManager.Instance);
         m_pooler = ObjectPooler.instance;
-        StartCoroutine(SpawnCoroutine());
         m_myWaveType = m_allWaveTypes[LevelPicker.Instance.GetLevel()];
+
+        StartCoroutine(SpawnCoroutine());
+        
 
     }
 
