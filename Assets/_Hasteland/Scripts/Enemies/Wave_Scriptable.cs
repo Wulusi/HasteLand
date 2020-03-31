@@ -6,12 +6,18 @@ using UnityEngine;
 public class Wave_Scriptable : ScriptableObject
 {
     public enum SpawnType { Ground, Air, Both}
+
+    public float m_levelDuration;
+    public float m_playerStartingCurrency;
+
     [System.Serializable]
     public struct WaveType
     {
-        public float m_startTime;
+        public float m_endTime;
         public int m_maxEnemies;
         public SpawnType m_waveSpawns;
     }
     public List<WaveType> m_waves;
+
+
 }

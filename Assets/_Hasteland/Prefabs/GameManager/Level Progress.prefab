@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7297408583883429547}
   - component: {fileID: 4899015138373880640}
   m_Layer: 5
-  m_Name: BTN - Main Menu
+  m_Name: BTN - Level SElect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +249,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7297408583883429547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7753354406139882153}
+        m_MethodName: LoadSceneByInt
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &396548785974957175
@@ -789,7 +800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005e0e0228d0d8847a9e3dd120695a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_levelTime: 60
   m_startLevelTime: 3
   m_levelEvents:
     m_levelStarted:

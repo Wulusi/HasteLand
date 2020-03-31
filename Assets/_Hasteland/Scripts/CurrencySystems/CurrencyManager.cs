@@ -16,6 +16,11 @@ public class CurrencyManager : MonoBehaviour
         Instance = this;
         StartCoroutine(UpdateUI());
     }
+
+    private void Start()
+    {
+        m_currentCurrency = WaveManager.Instance.GetCurrentCurrency();
+    }
     public float GetCurrentCurrency()
     {
         return m_currentCurrency;

@@ -12,13 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26a0db6aa1b74140afba70fe375314b, type: 3}
   m_Name: WaveType_Level2
   m_EditorClassIdentifier: 
+  m_levelDuration: 60
+  m_playerStartingCurrency: 400
   m_waves:
-  - m_startTime: 10
-    m_maxEnemies: 5
+  - m_endTime: 5
+    m_maxEnemies: 0
     m_waveSpawns: 1
-  - m_startTime: 30
-    m_maxEnemies: 7
-    m_waveSpawns: 0
-  - m_startTime: 45
+  - m_endTime: 10
+    m_maxEnemies: 10
+    m_waveSpawns: 1
+  - m_endTime: 20
     m_maxEnemies: 15
+    m_waveSpawns: 0
+  - m_endTime: 40
+    m_maxEnemies: 20
+    m_waveSpawns: 2
+  - m_endTime: 60
+    m_maxEnemies: 25
     m_waveSpawns: 2

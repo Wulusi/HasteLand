@@ -6,7 +6,6 @@ using UnityEngine;
 public class LevelProgressEvents : UnityEngine.Events.UnityEvent { }
 public class LevelProgress : MonoBehaviour, IPausable
 {
-    public float m_levelTime;
     public float m_startLevelTime;
 
     public LevelEvents m_levelEvents;
@@ -52,13 +51,14 @@ public class LevelProgress : MonoBehaviour, IPausable
     private IEnumerator LevelTimer()
     {
         float timer = 0;
-        while (timer < m_levelTime)
+        float levelTime = WaveManager.Instance.GetLevelTime();
+        while (timer < levelTime)
         {
             if (!m_isPaused && !m_died)
             {
                 timer += Time.deltaTime;
             }
-            UpdateUI(timer / m_levelTime);
+            UpdateUI(timer / levelTime);
             yield return null;
         }
         LevelCompleted();

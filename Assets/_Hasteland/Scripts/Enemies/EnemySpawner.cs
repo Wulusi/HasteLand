@@ -18,8 +18,6 @@ public class EnemySpawner : MonoBehaviour, IPausable
     private ObjectPooler m_pooler;
     public GameObject m_groundEnemy, m_airEnemy;
 
-    [Tooltip("The wave scriptable object, determined by what level this is")]
-    public List<Wave_Scriptable> m_allWaveTypes;
     private Wave_Scriptable m_myWaveType;
     private int m_currentEnemyCount;
     private int m_currentWave;
@@ -37,11 +35,8 @@ public class EnemySpawner : MonoBehaviour, IPausable
     {
         AddMeToPauseManager(PauseManager.Instance);
         m_pooler = ObjectPooler.instance;
-        m_myWaveType = m_allWaveTypes[LevelPicker.Instance.GetLevel()];
-
+        m_myWaveType = WaveManager.Instance.GetCurrentWaveType();
         StartCoroutine(SpawnCoroutine());
-        
-
     }
 
 
@@ -64,7 +59,7 @@ public class EnemySpawner : MonoBehaviour, IPausable
                 totalTimer += Time.deltaTime;
                 
                 if(m_currentWave < m_myWaveType.m_waves.Count)
-                if (totalTimer > m_myWaveType.m_waves[m_currentWave].m_startTime)
+                if (totalTimer > m_myWaveType.m_waves[m_currentWave].m_endTime)
                 {
                     m_currentWave++;
                 }
@@ -72,10 +67,6 @@ public class EnemySpawner : MonoBehaviour, IPausable
             yield return null;
         }
     }
-
-    
-    
-
 
     public void SpawnNewEnemy()
     {
@@ -100,7 +91,6 @@ public class EnemySpawner : MonoBehaviour, IPausable
         }
     }
  
-
     public Transform NewSpawnPos()
     {
         List<Transform> currentSpawns = new List<Transform>();
@@ -127,6 +117,7 @@ public class EnemySpawner : MonoBehaviour, IPausable
         m_currentEnemyCount--;
     }
 
+
     #region Pause Functions
     private bool m_isPaused = false;
     public void AddMeToPauseManager(PauseManager p_pauseManager)
@@ -140,5 +131,6 @@ public class EnemySpawner : MonoBehaviour, IPausable
     }
 
     #endregion
+
 
 }
