@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour, IPausable
                 //Check for next wave
                 totalTimer += Time.deltaTime;
                 
-                if(m_currentWave < m_myWaveType.m_waves.Count)
+                if(m_currentWave+1 < m_myWaveType.m_waves.Count)
                 if (totalTimer > m_myWaveType.m_waves[m_currentWave].m_endTime)
                 {
                     m_currentWave++;
