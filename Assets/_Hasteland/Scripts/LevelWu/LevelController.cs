@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class LevelController : MonoBehaviour
+public class LevelController : MonoBehaviour, IPausable
 {
     public Transform spawnPos, despawnPos;
 
@@ -33,17 +33,19 @@ public class LevelController : MonoBehaviour
         //Assign 0 by default
         lastInt = 0;
         //StartCoroutine(SpawnIntervals());
+        AddMeToPauseManager(PauseManager.Instance);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_levelFailed) return;
+        if (m_levelFailed || m_paused) return;
+        m_frameCount += 1;
         SpawnTerrain();
         UpdateSpeed();
     }
 
-
+    private int m_frameCount;
     public void PlayerDied()
     {
         m_levelFailed = true;
@@ -51,7 +53,7 @@ public class LevelController : MonoBehaviour
 
     private void SpawnTerrain()
     {
-        float totalTime = Time.frameCount;
+        float totalTime = m_frameCount;
         float duration = 1200f / TerrainSpd;
 
         if (Mathf.Repeat(totalTime, duration) == 0)
@@ -101,5 +103,17 @@ public class LevelController : MonoBehaviour
             poolManager.SpawnFromPool(spawnReference[randomNumbers[0]].name, spawnPos.transform.position, Quaternion.identity);
         currentTerrain.GetComponent<TerrainMover>().terrainSpd = TerrainSpd;
 
+    }
+
+
+    private bool m_paused;
+    public void SetPauseState(bool p_paused)
+    {
+        m_paused = p_paused;
+    }
+
+    public void AddMeToPauseManager(PauseManager p_pauseManager)
+    {
+        p_pauseManager.AddNewObject(this);
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerrainMover : MonoBehaviour, PooledObjInterface
+public class TerrainMover : MonoBehaviour, PooledObjInterface, IPausable
 {
     public bool isStartingTiles;
     public int terrainSpd;
@@ -23,6 +23,7 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
         {
             StartCoroutine(moveTiles(terrainSpd));
         }
+        AddMeToPauseManager(PauseManager.Instance);
     }
 
     IEnumerator moveTiles(int terrainSpd)
@@ -35,7 +36,7 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
 
     public void Update()
     {
-        if (GameHub.LevelController.m_levelFailed) return;
+        if (GameHub.LevelController.m_levelFailed || m_paused) return;
         transform.localPosition += new Vector3(-1, 0, 0) * terrainSpd * 1 / 60f; //Time.deltatime messes this up majorly
     }
 
@@ -104,5 +105,16 @@ public class TerrainMover : MonoBehaviour, PooledObjInterface
             m_pooler.ReturnToPool(piece);
         }
         m_environmentObjects.Clear();
+    }
+
+    private bool m_paused;
+    public void SetPauseState(bool p_paused)
+    {
+        m_paused = p_paused;
+    }
+
+    public void AddMeToPauseManager(PauseManager p_pauseManager)
+    {
+        p_pauseManager.AddNewObject(this);
     }
 }
