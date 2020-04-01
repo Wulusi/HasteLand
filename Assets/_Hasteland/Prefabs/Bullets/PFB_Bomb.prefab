@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_explodeRadius: 4
-  m_explodeDamage: 20
+  m_explodeDamage: 75
   m_explosionHitLayer:
     serializedVersion: 2
     m_Bits: 12288
