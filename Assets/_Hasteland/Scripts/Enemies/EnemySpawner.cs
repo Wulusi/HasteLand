@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// A test enemy spawner. Should be removed when the real spawner is added
-/// </summary>
+[System.Serializable]
+public class EnemySpawnerEvent : UnityEngine.Events.UnityEvent { }
 public class EnemySpawner : MonoBehaviour, IPausable
 {
     public List<Transform> m_spawnPoints;
@@ -24,8 +23,8 @@ public class EnemySpawner : MonoBehaviour, IPausable
     
 
     public static EnemySpawner Instance;
-    
 
+    public EnemySpawnerEvent m_enemyDied;
     private void Awake()
     {
         Instance = this;
@@ -114,6 +113,7 @@ public class EnemySpawner : MonoBehaviour, IPausable
 
     public void EnemyDied()
     {
+        m_enemyDied.Invoke();
         m_currentEnemyCount--;
     }
 
