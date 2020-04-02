@@ -288,6 +288,7 @@ MonoBehaviour:
   m_speed: 2
   m_health: {fileID: 1244920872408115681}
   m_applyDamage: 100
+  enemyState: 0
 --- !u!114 &3140124967771726180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244920873091082439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4529599259660749434}
@@ -915,26 +916,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2965802720336369503, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 8924696416135152512}
-    - target: {fileID: 2965802720336369503, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
-        type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043939801320868124, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043939801320868124, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
-        type: 3}
-      propertyPath: m_FillOrigin
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7073982414190495841, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1054,6 +1035,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.13675
+      objectReference: {fileID: 0}
+    - target: {fileID: 2965802720336369503, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 8924696416135152512}
+    - target: {fileID: 2965802720336369503, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043939801320868124, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043939801320868124, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5711d14f6c693eb4c8d9c0a97380d0ed, type: 3}

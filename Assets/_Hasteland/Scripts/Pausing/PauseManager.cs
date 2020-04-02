@@ -7,6 +7,7 @@ public class PauseManager : MonoBehaviour
     public List<GameObject> m_pausableObjectsInScene;
     private List<IPausable> m_allPausableObjects = new List<IPausable>();
     public static PauseManager Instance;
+
     private void Awake()
     {
         Instance = this;
@@ -19,6 +20,7 @@ public class PauseManager : MonoBehaviour
             }
         }
     }
+
     public void SetPauseState(bool p_isPaused)
     {
         foreach(IPausable pauseMe in m_allPausableObjects)

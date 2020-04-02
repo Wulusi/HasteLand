@@ -205,6 +205,7 @@ MonoBehaviour:
   m_speed: 2
   m_health: {fileID: 7516946778828576805}
   m_applyDamage: 100
+  enemyState: 0
 --- !u!114 &5946054093068603552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +401,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 202015118965535300}
+    - target: {fileID: 2965802720336369503, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1043939801320868124, guid: 5711d14f6c693eb4c8d9c0a97380d0ed,
         type: 3}
       propertyPath: m_FillAmount
