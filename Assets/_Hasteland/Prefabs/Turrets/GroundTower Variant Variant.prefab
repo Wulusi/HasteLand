@@ -368,7 +368,7 @@ MonoBehaviour:
         PublicKeyToken=null
   m_attachedTurrets:
   - {fileID: 631636987884854611}
-  m_detectionRadius: 20
+  m_detectionRadius: 25
   m_detectionMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -385,7 +385,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fc29a9bb3c5772049a840400c5eccf62, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c80881e94b340a4b86eecb411a6862a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -599,7 +599,7 @@ MonoBehaviour:
         PublicKeyToken=null
   m_attachedTurrets:
   - {fileID: 631636986035886235}
-  m_detectionRadius: 15
+  m_detectionRadius: 20
   m_detectionMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_attachedTurrets:
   - {fileID: 3391344215335815630}
   - {fileID: 631636986486631308}
-  m_detectionRadius: 20
+  m_detectionRadius: 25
   m_detectionMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -1063,7 +1063,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fc29a9bb3c5772049a840400c5eccf62, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c80881e94b340a4b86eecb411a6862a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1

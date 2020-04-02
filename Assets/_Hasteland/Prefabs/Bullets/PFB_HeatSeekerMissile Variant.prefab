@@ -127,5 +127,15 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.ctime0
       value: 2699
       objectReference: {fileID: 0}
+    - target: {fileID: 5155582021955079946, guid: 4b5d308d304217a41aba626057274486,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b38e5df2454a90c4fb27d8f275674bb8, type: 2}
+    - target: {fileID: 5155582021955079946, guid: 4b5d308d304217a41aba626057274486,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b38e5df2454a90c4fb27d8f275674bb8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b5d308d304217a41aba626057274486, type: 3}

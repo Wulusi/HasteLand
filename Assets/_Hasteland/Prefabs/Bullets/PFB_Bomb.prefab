@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_explodeRadius: 4
-  m_explodeDamage: 20
+  m_explodeDamage: 75
   m_explosionHitLayer:
     serializedVersion: 2
     m_Bits: 12288
@@ -119,6 +119,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 3adeed906c8e313439fa71c7394ebcb8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b38e5df2454a90c4fb27d8f275674bb8, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 3adeed906c8e313439fa71c7394ebcb8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b38e5df2454a90c4fb27d8f275674bb8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adeed906c8e313439fa71c7394ebcb8, type: 3}
 --- !u!4 &5797077662247588750 stripped
