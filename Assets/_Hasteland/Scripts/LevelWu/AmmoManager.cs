@@ -77,7 +77,7 @@ public class AmmoManager : MonoBehaviour
 
     public void CheckRay()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && canFire)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -90,17 +90,17 @@ public class AmmoManager : MonoBehaviour
 
                 hitObj.TakeDamage(shotDamage);
 
-                objectPooler.SpawnFromPool(hitParticle.name, hit.point - ray.direction.normalized * rayLength, Quaternion.identity);
+                objectPooler.SpawnFromPool
+                    (hitParticle.name, hit.point - ray.direction.normalized * rayLength, Quaternion.identity).
+                    GetComponent<ParticleSystem>().Play();
 
                 gunHitEvent.Invoke();
             }
             else
             {
                 gunHitEvent.Invoke();
-
             }
             currentAmmo--;
         }
-
     }
 }
