@@ -29,6 +29,10 @@ public class AmmoManager : MonoBehaviour
     [SerializeField]
     GunHitEvent gunHitEvent2;
 
+    public LayerMask m_nonHitLayer;
+    public UnityEngine.EventSystems.EventSystem m_eventSystem;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,28 +83,31 @@ public class AmmoManager : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0) && canFire)
         {
+            if (m_eventSystem.IsPointerOverGameObject()) return;
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask))
+            if (!Physics.Raycast(ray, out hit, Mathf.Infinity, m_nonHitLayer))
             {
-                //Debug.Log("ray hit " + hit.collider.name);
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask))
+                {
+                    //Debug.Log("ray hit " + hit.collider.name);
 
-                var hitObj = hit.collider.GetComponent<Health>();
+                    var hitObj = hit.collider.GetComponent<Health>();
 
-                hitObj.TakeDamage(shotDamage);
+                    hitObj.TakeDamage(shotDamage);
 
-                objectPooler.SpawnFromPool
-                    (hitParticle.name, hit.point - ray.direction.normalized * rayLength, Quaternion.identity).
-                    GetComponent<ParticleSystem>().Play();
+                    objectPooler.SpawnFromPool
+                        (hitParticle.name, hit.point - ray.direction.normalized * rayLength, Quaternion.identity).
+                        GetComponentInChildren<ParticleSystem>().Play();
 
-                gunHitEvent.Invoke();
+                    gunHitEvent.Invoke();
+                }
+                else
+                {
+                    gunHitEvent2.Invoke();
+                }
+                currentAmmo--;
             }
-            else
-            {
-                gunHitEvent.Invoke();
-            }
-            currentAmmo--;
         }
     }
 }

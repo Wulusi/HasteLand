@@ -6,6 +6,7 @@ using UnityEngine;
 public class SoundEmitter : MonoBehaviour
 {
     AudioSource m_aSource;
+    public List<AudioClip> m_allClips;
 
     void Start()
     {
@@ -17,6 +18,12 @@ public class SoundEmitter : MonoBehaviour
     {
         print(gameObject.name + " Fire Sound");
         m_aSource.Stop();
+        m_aSource.Play();
+    }
+    public void PlayRandomClip()
+    {
+        m_aSource.Stop();
+        m_aSource.clip = m_allClips[Random.Range(0, m_allClips.Count)];
         m_aSource.Play();
     }
 }
