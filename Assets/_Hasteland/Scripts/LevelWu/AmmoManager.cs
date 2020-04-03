@@ -2,6 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class GunHitEvent : UnityEngine.Events.UnityEvent { }
+
 public class AmmoManager : MonoBehaviour
 {
     [SerializeField]
@@ -10,9 +13,21 @@ public class AmmoManager : MonoBehaviour
     [SerializeField]
     private Text outOfAmmo;
 
-    public float currentAmmo, maxAmmo, ammoAdd;
+    public float currentAmmo, maxAmmo, ammoAdd, shotDamage, rayLength;
 
     public bool canFire;
+
+    private int layer_mask;
+
+    public GameObject hitParticle;
+
+    public PoolManager objectPooler;
+
+    [SerializeField]
+    GunHitEvent gunHitEvent;
+
+    [SerializeField]
+    GunHitEvent gunHitEvent2;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +35,10 @@ public class AmmoManager : MonoBehaviour
         canFire = true;
         currentAmmo = maxAmmo;
         StartCoroutine(CheckAmmo());
+
+        objectPooler = PoolManager.Instance;
+
+        layer_mask = (1 << LayerMask.NameToLayer("GroundEnemy")) | (1 << LayerMask.NameToLayer("AirEnemy"));
     }
 
     IEnumerator CheckAmmo()
@@ -27,6 +46,7 @@ public class AmmoManager : MonoBehaviour
         while (true)
         {
             Ammo();
+            CheckRay();
             yield return null;
         }
     }
@@ -53,5 +73,34 @@ public class AmmoManager : MonoBehaviour
     public void GiveAmmo()
     {
         currentAmmo += ammoAdd;
+    }
+
+    public void CheckRay()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask))
+            {
+                //Debug.Log("ray hit " + hit.collider.name);
+
+                var hitObj = hit.collider.GetComponent<Health>();
+
+                hitObj.TakeDamage(shotDamage);
+
+                objectPooler.SpawnFromPool(hitParticle.name, hit.point - ray.direction.normalized * rayLength, Quaternion.identity);
+
+                gunHitEvent.Invoke();
+            }
+            else
+            {
+                gunHitEvent.Invoke();
+
+            }
+            currentAmmo--;
+        }
+
     }
 }

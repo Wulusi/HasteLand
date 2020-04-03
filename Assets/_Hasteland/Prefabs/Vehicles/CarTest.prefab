@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 2293102983553009707}
   - component: {fileID: 3140124967771726180}
   - component: {fileID: 398293026987916167}
-  - component: {fileID: 7688248329288276970}
   - component: {fileID: 6122884396736538756}
   m_Layer: 12
   m_Name: CarTest
@@ -321,20 +320,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7688248329288276970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244920872408115684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a651f8598b64d1a4792f548c1ac1480e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 1244920872408115681}
-  damageAmt: 50
 --- !u!114 &6122884396736538756
 MonoBehaviour:
   m_ObjectHideFlags: 0
