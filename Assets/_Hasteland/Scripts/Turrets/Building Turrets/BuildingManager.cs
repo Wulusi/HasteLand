@@ -60,6 +60,10 @@ public class BuildingManager : MonoBehaviour, IPausable
         public UnityEngine.UI.Button m_btn_turretFullyUpgraded;
         [Tooltip("The text of the upgrade button")]
         public UnityEngine.UI.Text m_upgradeText;
+        [Tooltip("The text of the upgrade cost button")]
+        public UnityEngine.UI.Text m_upgradeCostText;
+        [Tooltip("The text of the return cost button")]
+        public UnityEngine.UI.Text m_returnCost;
         [Tooltip("The text that appears on the upgrade button, showing the name of the new turret upgrade")]
         public List<TurretUpgradeTexts> m_turretUpgradeTexts;
     }
@@ -68,6 +72,8 @@ public class BuildingManager : MonoBehaviour, IPausable
     public struct TurretUpgradeTexts
     {
         public string m_upgradeText1, m_upgradeText2;
+        public float m_upgradeCost1, m_upgradeCost2;
+        public float m_returnCost, m_returnCost2, m_returnCost3;
     }
 
     private Coroutine m_enableUpgradesCoroutine;
@@ -197,20 +203,26 @@ public class BuildingManager : MonoBehaviour, IPausable
         #region Determine which buttons to show
         m_turretUpgradeVars.m_btn_upgradeButton.interactable = false;
 
+        
 
         m_turretUpgradeVars.m_btn_turretFullyUpgraded.gameObject.SetActive(false);
         m_turretUpgradeVars.m_btn_upgradeButton.gameObject.SetActive(true);
 
         if (m_currentTurretUpgrade.GetCurrentUpgradeLevel() == 0)
         {
+            m_turretUpgradeVars.m_returnCost.text = m_turretUpgradeVars.m_turretUpgradeTexts[m_currentTurretUpgrade.m_towerTypeIndex].m_returnCost.ToString();
             m_turretUpgradeVars.m_upgradeText.text = m_turretUpgradeVars.m_turretUpgradeTexts[m_currentTurretUpgrade.m_towerTypeIndex].m_upgradeText1;
+            m_turretUpgradeVars.m_upgradeCostText.text = m_turretUpgradeVars.m_turretUpgradeTexts[m_currentTurretUpgrade.m_towerTypeIndex].m_upgradeCost1.ToString();
         }
         else if (m_currentTurretUpgrade.GetCurrentUpgradeLevel() == 1)
         {
+            m_turretUpgradeVars.m_returnCost.text = m_turretUpgradeVars.m_turretUpgradeTexts[m_currentTurretUpgrade.m_towerTypeIndex].m_returnCost2.ToString();
             m_turretUpgradeVars.m_upgradeText.text = m_turretUpgradeVars.m_turretUpgradeTexts[m_currentTurretUpgrade.m_towerTypeIndex].m_upgradeText2;
+            m_turretUpgradeVars.m_upgradeCostText.text = m_turretUpgradeVars.m_turretUpgradeTexts[m_currentTurretUpgrade.m_towerTypeIndex].m_upgradeCost2.ToString();
         }
         else
         {
+            m_turretUpgradeVars.m_returnCost.text = m_turretUpgradeVars.m_turretUpgradeTexts[m_currentTurretUpgrade.m_towerTypeIndex].m_returnCost3.ToString();
             m_turretUpgradeVars.m_btn_upgradeButton.gameObject.SetActive(false);
             m_turretUpgradeVars.m_btn_turretFullyUpgraded.gameObject.SetActive(true);
         }

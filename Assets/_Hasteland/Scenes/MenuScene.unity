@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nextLevel: 1
-  m_loadSceneTime: 2
+  m_loadSceneTime: 1
   m_canvasGroup: {fileID: 317310968}
 --- !u!4 &1350757132
 Transform:

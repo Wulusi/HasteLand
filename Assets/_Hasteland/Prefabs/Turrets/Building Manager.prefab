@@ -827,13 +827,30 @@ MonoBehaviour:
     m_btn_upgradeButton: {fileID: 4002272406719326333}
     m_btn_turretFullyUpgraded: {fileID: 4002272408688312605}
     m_upgradeText: {fileID: 4002272408050556639}
+    m_upgradeCostText: {fileID: 0}
+    m_returnCost: {fileID: 0}
     m_turretUpgradeTexts:
     - m_upgradeText1: Armor Piercing
       m_upgradeText2: Deadly Duo
+      m_upgradeCost1: 200
+      m_upgradeCost2: 400
+      m_returnCost: 100
+      m_returnCost2: 150
+      m_returnCost3: 200
     - m_upgradeText1: Heat Seeker
       m_upgradeText2: The Coiler
+      m_upgradeCost1: 200
+      m_upgradeCost2: 400
+      m_returnCost: 0
+      m_returnCost2: 0
+      m_returnCost3: 0
     - m_upgradeText1: Double the Pride
       m_upgradeText2: Cold Blooded Pinata
+      m_upgradeCost1: 250
+      m_upgradeCost2: 400
+      m_returnCost: 0
+      m_returnCost2: 0
+      m_returnCost3: 0
 --- !u!1 &4002272407711644848
 GameObject:
   m_ObjectHideFlags: 0
