@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - POI
+  - Terrain
   layers:
   - Default
   - TransparentFX
