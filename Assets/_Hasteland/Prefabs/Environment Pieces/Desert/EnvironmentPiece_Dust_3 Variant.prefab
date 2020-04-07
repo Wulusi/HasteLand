@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8545585031997005763, guid: f6e5acfdb35206241a18955a9b5851a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3139915011606712289, guid: f6e5acfdb35206241a18955a9b5851a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -91,6 +96,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Env_DustPile_Small_01
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dadb21d1ec7b6a741991831c19385951,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dadb21d1ec7b6a741991831c19385951,
         type: 3}

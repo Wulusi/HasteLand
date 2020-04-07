@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8545585031997005763, guid: f6e5acfdb35206241a18955a9b5851a7,
+        type: 3}
+      propertyPath: m_Name
+      value: EnvironmentPiece_Rock_4 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545585031997005763, guid: f6e5acfdb35206241a18955a9b5851a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3139915011606712289, guid: f6e5acfdb35206241a18955a9b5851a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,11 +72,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8545585031997005763, guid: f6e5acfdb35206241a18955a9b5851a7,
-        type: 3}
-      propertyPath: m_Name
-      value: EnvironmentPiece_Rock_4 Variant
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e5acfdb35206241a18955a9b5851a7, type: 3}
 --- !u!4 &2817137357092436558 stripped
@@ -86,6 +91,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Rock_Round_02
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8571009d43fed4948a5d836c1e1db282,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8571009d43fed4948a5d836c1e1db282,
         type: 3}

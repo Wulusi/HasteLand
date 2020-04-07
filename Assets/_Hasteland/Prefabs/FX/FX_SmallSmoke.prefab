@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 2482816958811790701}
   - component: {fileID: 2482816958811790702}
   m_Layer: 0
-  m_Name: FX_Smoke
+  m_Name: FX_SmallSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &2482816958811790700
 Transform:
@@ -4771,7 +4771,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &2482816959424841903
 Transform:
